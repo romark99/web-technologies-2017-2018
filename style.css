@@ -31,20 +31,25 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+
 body {
     line-height: 1;
 }
+
 ol, ul {
     list-style: none;
 }
+
 blockquote, q {
     quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
     content: '';
     content: none;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -53,54 +58,183 @@ table {
 /*
     my editions
  */
-h1{
+h1 {
     font-size: 34px;
 }
 
 body {
-    font-family:
-        Roboto, Arial, sans-serif;
+    font-family: Roboto, Arial, sans-serif;
+    background-color: #ede7f6;
 }
 
-.topColor{
+footer{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.addFile{
+    color: #4285f4;
+    font-size: 14px;
+    font-weight: 500;
+    margin: unset;
+    text-decoration: none;
+}
+
+header {
     background-color: #673ab7;
     height: 278px;
     align-items: flex-start;
     display: block;
 }
 
-.centerForm{
+.forFooter {
+    margin: 16px 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
+}
+
+.rightsEdit {
+
+}
+
+.forGoogleForms {
+    margin: 24px 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
+}
+
+.form {
+    grid-column: 2/3;
+    grid-row: 1/2;
     background-color: white;
     color: black;
-    margin: -100px 100px;
     border-color: black;
-    padding: 34px;
+    margin-top: -100px;
 }
 
-.necessary{
+.main {
+    display: grid;
+    grid-template-columns: 1fr 600px 1fr;
+    grid-template-rows: auto 100px;
+}
+
+.non-stripe {
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+
+.necessary {
     color: red;
     margin-top: 22px;
+    margin-bottom: 22px;
     font-size: 13px;
+    padding-left: 34px;
+    padding-right: 34px;
 }
 
-.questions{
+.stripe {
+    background-color: #b388ff;
+    height: 8px;
+}
+
+.question {
     font-size: 20px;
 }
 
-.stars{
+.questions {
+    padding-left: 17px;
+    padding-right: 17px;
+}
+
+.forDate {
+    margin-top: 15px
+}
+
+.date{
+    color: #00000061;
+    font-size: 12px;
+}
+
+.forSubmit {
+    margin-top: 34px;
+    padding-left: 34px;
+    padding-right: 34px;
+}
+
+.forUsingGoogle {
+    margin-top: 8px;
+}
+
+.submit{
+    background-color: #4285f4;
+    color: white;
+    height: 36px;
+    border-radius: 3px;
+    border: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.stars {
     color: red;
 }
 
-.name{
-    padding-top: 16px;
+.titleForm {
+    padding-left: 34px;
+    padding-right: 34px;
 }
 
-.enterName{
-    margin-top: 14px;
-    margin-bottom: 24px;
+.one_question {
+    padding: 17px;
+    margin-top: 2px;
+}
+
+.enterName {
+    font-size: 14px;
+    margin: unset;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom: 1px dotted black;
+    border-left-width: 0;
+}
+
+.forEnterName {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 12px;
+}
+
+.textFooter{
+    color: #646464;
+    font-size: 12px;
+
+}
+
+.googleForms {
+    color: #646464;
+    font-size: 22.1px;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: 100%;
+}
+
+.radioSpan {
+    display: flex;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .radios {
-    display: flex;
-    flex-direction: column;
+    margin-top: 8px;
+}
+
+.labelName {
+    margin-left: 12px;
+    margin-right: 12px;
 }
