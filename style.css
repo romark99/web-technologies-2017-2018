@@ -67,6 +67,11 @@ body {
     background-color: #ede7f6;
 }
 
+footer{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
 .addFile{
     color: #4285f4;
     font-size: 14px;
@@ -83,34 +88,41 @@ header {
 }
 
 .forFooter {
-    margin: 16px 100px;
+    margin: 16px 10px;
     padding-left: 16px;
     padding-right: 16px;
     text-align: center;
+}
+
+.rightsEdit {
+
 }
 
 .forGoogleForms {
-    margin: 24px 100px;
+    margin: 24px 10px;
     padding-left: 16px;
     padding-right: 16px;
     text-align: center;
-
 }
 
 .form {
+    grid-column: 2/3;
+    grid-row: 1/2;
     background-color: white;
     color: black;
     border-color: black;
-
-    margin-left: 100px;
-    margin-right: 100px;
     margin-top: -100px;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 600px 1fr;
+    grid-template-rows: auto 100px;
 }
 
 .non-stripe {
     padding-top: 34px;
     padding-bottom: 34px;
-    margin-bottom: 75px;
 }
 
 .necessary {
