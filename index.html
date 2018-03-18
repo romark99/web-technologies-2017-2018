@@ -7,46 +7,141 @@
 </head>
 <body>
 <div>
-    <div class="topColor">
-        <h></h>
-    </div>
-    <form class="centerForm">
-        <h1>Password request form</h1>
-        <div class="necessary">* Обязательно</div>
-        <div class="name">
+    <header>
+
+    </header>
+    <form class="form">
+        <div class="stripe"></div>
+        <div class="non-stripe">
+            <h1 class="titleForm">Password request form</h1>
+            <div class="necessary">* Обязательно</div>
             <div class="questions">
-                <h>Please fill your name <span class="stars">*</span></h>
+                <div class="one_question">
+                    <div class="question">
+                        <h>Please fill your name <span class="stars">*</span></h>
+                    </div>
+                    <div class="forEnterName">
+                        <input type="text" class="enterName"/>
+                    </div>
+                </div>
+                <div class="one_question">
+                    <div class="question">
+                        <h>What color you like <span class="stars">*</span></h>
+                    </div>
+                    <div class="radios">
+                        <span class="radioSpan">
+                            <input class="enterName" id="red" type="radio" value="red" name="colors">
+                            <label class="labelName" for="red">Red</label>
+                        </span>
+                        <span class="radioSpan">
+                            <input class="enterName" id="green" type="radio" value="green" name="colors">
+                            <label class="labelName" for="green">Green</label>
+                        </span>
+                        <span class="radioSpan">
+                            <input class="enterName" id="blue" type="radio" value="blue" name="colors">
+                            <label class="labelName" for="blue">Blue</label>
+                        </span>
+                        <span class="radioSpan">
+                            <input class="enterName" id="black" type="radio" value="black" name="colors">
+                            <label class="labelName" for="black">Black</label>
+                        </span>
+                        <span class="radioSpan">
+                            <input class="enterName" id="white" type="radio" value="white" name="colors">
+                            <label class="labelName" for="white">White</label>
+                        </span>
+                        <span class="radioSpan">
+                            <input class="enterName" id="other" type="radio" value="other" name="colors">
+                            <label class="labelName" for="other">Другое:</label>
+                            <input class="enterName" type="text">
+                        </span>
+                    </div>
+                </div>
+                <div class="one_question">
+                    <div class="question">
+                        <h>What town you like more? <span class="stars">*</span></h>
+                    </div>
+                    <div class="forEnterName">
+                        <select name="town" class="enterName" id="town">
+                            <option selected="selected">Выбрать</option>
+                            <option>Brest</option>
+                            <option>Minsk</option>
+                            <option>Grodno</option>
+                            <option>Mogilev</option>
+                            <option>Vitebsk</option>
+                            <option>Gomel</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="one_question">
+                    <div class="question">
+                        <h>Please describe (at least 50 symbols on symbols) your favorite programming language <span
+                                class="stars">*</span></h>
+                    </div>
+                    <div class="forEnterName">
+                        <div class="grid">
+                            <input type="text" class="enterName"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="one_question">
+                    <div class="question">
+                        <h>What years of education did you really like? <span class="stars">*</span></h>
+                    </div>
+                    <div class="radios">
+                        <span class="radioSpan">
+                            <input class="enterName" id="first" type="checkbox" value="first" name="year">
+                            <label class="labelName" for="first">First</label>
+                        </span>
+                        <span class="radioSpan">
+                            <input class="enterName" id="second" type="checkbox" value="second" name="year">
+                            <label class="labelName" for="second">Second</label>
+                        </span>
+                        <span class="radioSpan">
+                            <input class="enterName" id="third" type="checkbox" value="third" name="year">
+                            <label class="labelName" for="third">Third</label>
+                        </span>
+                        <span class="radioSpan">
+                            <input class="enterName" id="fourth" type="checkbox" value="fourth" name="year">
+                            <label class="labelName" for="fourth">Fourth</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="one_question">
+                    <div class="question">
+                        <h>Please send any image <span class="stars">*</span></h>
+                    </div>
+                    <div class="forEnterName">
+                        <a href="#" type="image" class="addFile">ДОБАВИТЬ ФАЙЛ</a>
+                    </div>
+                </div>
+                <div class="one_question">
+                    <div class="question">
+                        <h>Set last Monday Monday <span class="stars">*</span></h>
+                    </div>
+                    <div class="forDate">
+                        <label class="date" for="dateMonday">Дата</label>
+                    </div>
+                    <div class="forEnterName">
+                        <input type="date" class="enterName" id="dateMonday">
+                    </div>
+                </div>
             </div>
-            <input class="enterName"/>
-        </div>
-        <div class="name">
-            <div class="questions">
-                <h>What color you like <span class="stars">*</span></h>
-            </div>
-            <div class="radios">
-                    <span>
-                        <input class="enterName" id="red" type="radio" value="red" name="colors">
-                        <label for="red">Red</label>
-                    </span>
-                <span>
-                        <input class="enterName" id="green" type="radio" value="green" name="colors">
-                        <label for="red">Green</label>
-                    </span>
-                <span>
-                        <input class="enterName" id="blue" type="radio" value="blue" name="colors">
-                        <label for="red">Blue</label>
-                    </span>
-                <span>
-                        <input class="enterName" id="black" type="radio" value="black" name="colors">
-                        <label for="red">Black</label>
-                    </span>
-                <span>
-                        <input class="enterName" id="white" type="radio" value="white" name="colors">
-                        <label for="red">White</label>
-                    </span>
+            <div class="forSubmit">
+                <input type="submit" class="submit" value="Отправить">
+                <div class="forUsingGoogle">
+                    <label class="date">Никогда не используйте формы Google для передачи паролей.</label>
+                </div>
             </div>
         </div>
     </form>
+    <footer>
+        <div class="forFooter">
+            <label class="textFooter">Компания Google не имеет никакого отношения к этому контенту. Сообщение о нарушении - Условия использования - Дополнительные условия</label>
+        </div>
+        <div class="forGoogleForms">
+            <label class="googleForms">Google Формы</label>
+        </div>
+    </footer>
 </div>
 </body>
 </html>
