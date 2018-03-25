@@ -486,16 +486,502 @@ header div.toc nav ul.navL3 {
     display: block;
 }
 
+
+div#page main{
+    margin-top: 0 !important;
+    margin-bottom: 0;
+    max-width: 100%;
+    width: 100%;
+    font-family: "Segoe UI Light", "Segoe UI", Frutiger, Tahoma, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+main{
+    display: block;
+    min-height: 400px;
+    margin: 0 auto 59px;
+}
+
+main div[data-fragmentname] {
+    margin-bottom: 0;
+}
+
+#fragHeroHeadlines>div{
+    width: calc(100% - 32px);
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+#fragHeroContent .richText{
+    height: 395px;
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.heropaneltext{
+    padding: 0;
+    font-size: 1.25rem;
+    line-height: 1.07rem;
+}
+
+.heropaneltext h1{
+    font-size: 2.5rem;
+    line-height: 1.2em;
+    padding: 0 0 20px 0;
+}
+
+.heropaneltext p{
+    padding-left: 2px;
+}
+
+main a:hover, main a:active{
+    color: #2a7ae2;
+    text-decoration: none;
+}
+
+.heropanelimg img{
+    display: block;
+}
+
+.resourceBlock{
+    float: left;
+    width: 16.6%;
+    height: 12.42%;
+    padding-top: 21px;
+    padding-bottom: 5px;
+    margin-right: 3.4%;
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1em;
+    color: #414042;
+}
+
+#fragResourceBand{
+    background-color: #f1f1f1;
+}
+
+#fragResourceBand .richText{
+    width: 90%;
+    max-width: 1062px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#fragResourceBand .richText .resourceBand{
+    overflow: hidden;
+    padding: 10px 0 50px 2%;
+}
+
+.resourceBlock img {
+    width: 61.1%;
+    height: auto;
+}
+
+#fragHeroHeadlines>div, #fragFeaturesHeading .richText, #fragResourceBand.richText, #fragFeatures, #fragSocialBand.richText{
+    width: calc(100% - 32px);
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+#fragFeaturesHeading .richText{
+    padding-top: 40px;
+    text-align: center;
+}
+
+#fragFeaturesHeading .richText h2{
+    line-height: 1.79em;
+}
+
+div#fragFeatures{
+    padding: 40px 0 62px 0;
+    overflow: hidden;
+}
+
+div#fragFeatures .detailedMediaList{
+    display: grid;
+    grid-template-columns: 200fr 11fr 200fr 11fr 200fr;
+}
+
+#fragContentInclude1{
+    grid-column: 1/2;
+}
+
+#fragContentInclude2{
+    grid-column: 3/4;
+}
+
+#fragContentInclude3{
+    grid-column: 5/6;
+}
+
+#fragFeatures .title,
+#fragFeatures .detailedMediaList .label{
+    color: #fff;
+    text-align: center;
+    background: #767676;
+    line-height: 29px;
+    padding: 0;
+    margin: 0;
+}
+
+#fragFeatures .detailedMediaList .label{
+    display: block;
+    width: 100%;
+}
+
+#fragFeatures .textContent {
+    padding: 13px 0;
+}
+
+.detailedMediaList .textContent {
+    margin-top: 5px;
+}
+
+#fragFeatures .textContent .link,
+#fragFeatures .textContent .linkText {
+    font-size: 1.25rem;
+    line-height: 1.07em;
+    color: #010101;
+}
+
+footer{
+    display: block;
+    background-color: #eeeeee;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+div#footerSock{
+    min-height: 60px;
+    background-color: #0078d7;
+    color: #fff;
+    line-height: 16px;
+    font-size: 16px;
+    font-family: 'Segoe UI Light','Lucida Grande',Verdana,Arial,Helvetica,sans-serif;
+}
+
+div#footerSock div#footerSockInner{
+    max-width: 1180px;
+    width: 97%;
+    min-height: 60px;
+    margin: auto;
+    text-align: center;
+}
+
+div#footerSock div#footerSockInner div.footerSockLeft{
+    float: left;
+    height: 60px;
+}
+
+div#footerSock div#footerSockInner div.footerSockCenter{
+    display: block;
+    min-height: 60px;
+    margin: 0 auto;
+}
+
+div#footerSock div#footerSockInner div.footerSockRight{
+    float: right;
+    display: table;
+    height: 60px;
+}
+
+div#footerSock div#footerSockInner>div:empty {
+    display :none!important;
+}
+
+footer .clear{
+    clear: both;
+}
+
+.clear {
+    display: block;
+    clear: both;
+}
+
+div#footerSock div#footerSockInner div.footerSockLeft div#fragSocialLinks{
+    height: 100%;
+}
+
+div#footerSock div#footerSockInner div.footerSockLeft div#fragSocialLinks div.linkList{
+    display: table;
+    height: 100%;
+}
+
+div#footerSock div#footerSockInner div.footerSockLeft div#fragSocialLinks div.linkList>div,
+div#footerSock div#footerSockInner div.footerSockLeft div#fragSocialLinks div.linkList>ul{
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+div#footerSock div#footerSockInner div.footerSockLeft div#fragSocialLinks div.linkList .linksListTitle{
+    font-size: 1.25em;
+    padding-right: 12px;
+}
+
+div#footerSock div#footerSockInner div.footerSockLeft div#fragSocialLinks div.linkList ul>li{
+    float: left;
+    padding: 3px;
+}
+
+div#footerSock div#footerSockInner div.footerSockLeft div#fragSocialLinks div.linkList ul>li>a{
+    display: inline-block;
+    color: transparent;
+    text-indent: -100000px;
+}
+
+div#footerSock div#footerSockInner a{
+    transition: none;
+}
+
+.linkList>ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.linkList>ul>li{
+    list-style-type: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .footerSockLeft .facebook{
+    background: url("https://i-msdn.sec.s-msft.com/Areas/Centers/Themes/StandardDevCenter/Content/HeaderFooterSprite.png?v=636555423305882433") no-repeat scroll -1643px -3px;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+}
+
+footer .footerSockLeft .twitter{
+    background: url("https://i-msdn.sec.s-msft.com/Areas/Centers/Themes/StandardDevCenter/Content/HeaderFooterSprite.png?v=636555423305882433") no-repeat scroll -1761px -3px;
+    width: 33px;
+    height: 32px;
+    overflow: hidden;
+}
+
+footer .footerSockLeft .vkOne{
+    background: url("https://i-msdn.sec.s-msft.com/Areas/Centers/Themes/StandardDevCenter/Content/HeaderFooterSprite.png?v=636555423305882433") no-repeat scroll -1801px -3px;
+    width: 33px;
+    height: 33px;
+    overflow: hidden;
+}
+
+div#footerSock div#footerSockInner div.rating{
+    min-width: 290px;
+}
+
+div#footerSock div#footerSockInner div.rating,
+div#footerSock div#footerSockInner div.userVoice {
+    min-height: 60px;
+}
+
+div#footerSock div#footerSockInner div.rating div.ratingSection1,
+div#footerSock div#footerSockInner div.userVoice div.ratingSection1 {
+    display: table;
+    height: 60px;
+}
+
+div#footerSock div#footerSockInner div.footerSockCenter div.rating>div {
+    margin: auto;
+}
+
+div#footerSock div#footerSockInner div.rating div.ratingSection1>div,
+div#footerSock div#footerSockInner div.userVoice div.ratingSection1>div {
+    display: table-cell;
+    vertical-align: middle;
+    height: 60px;
+}
+
+div#footerSock div#footerSockInner div.rating div.title,
+div#footerSock div#footerSockInner div.userVoice div.title {
+    font-family: 'Segoe UI Light','Lucida Grande',Verdana,Arial,Helvetica,sans-serif;
+    color: #fff!important;
+    line-height: 20px;
+    margin: 0 0 15px 0;
+    font-size: 1.25em;
+    font-weight: normal;
+    clear: none;
+}
+
+div#footerSock div#footerSockInner div.rating div.description {
+    margin-bottom: 26px;
+}
+
+div#footerSock div#footerSockInner div.rating div.description,
+div#footerSock div#footerSockInner div.userVoice div.description {
+    display: none!important;
+}
+
+div#footerSock div#footerSockInner div.rating div.buttons,
+div#footerSock div#footerSockInner div.userVoice div.buttons {
+    margin-top: 10px;
+    padding-top: 0;
+    min-width: 165px;
+}
+
+div#footerSock div#footerSockInner div.rating div.buttons>.button,
+div#footerSock div#footerSockInner div.rating div.buttons>div>.button {
+    padding: 7px 18px;
+}
+
+div#footerSock div#footerSockInner div.rating div.buttons>.button,
+div#footerSock div#footerSockInner div.userVoice div.buttons>.button,
+div#footerSock div#footerSockInner div.rating div.buttons>div>.button,
+div#footerSock div#footerSockInner div.userVoice div.buttons>div>.button {
+    cursor: pointer;
+    font-size: .8em;
+    line-height: 16px;
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: #0078d7;
+    margin: 0 0 0 10px;
+    min-width: 0;
+}
+
+div#footerSock div#footerSockInner div.rating div.buttons>.button:hover,
+div#footerSock div#footerSockInner div.userVoice div.buttons>.button:hover,
+div#footerSock div#footerSockInner div.rating div.buttons>div>.button:hover,
+div#footerSock div#footerSockInner div.userVoice div.buttons>div>.button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+div#footerSock div#footerSockInner div.footerSockRight a {
+    font-size: 1.25em;
+    line-height: 20px;
+    color: #fff;
+}
+
+div#footerSock div#footerSockInner a {
+    transition: none;
+}
+
+div#footerSock div#footerSockInner div.footerSockRight>div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+div#footerSock div#footerSockInner div.footerSockRight #fragNewsletter>a::after {
+    content: ' ';
+    display: inline-block;
+    width: 40px;
+    height: 26px;
+    margin-left: 7px;
+    margin-top: -4px;
+    vertical-align: middle;
+    background: transparent url("https://i-msdn.sec.s-msft.com/Areas/Centers/Themes/StandardDevCenter/Content/Images/icon-newsletter.png?v=636555423306507436") no-repeat 0 0;
+}
+
+.ratingSection1{
+    max-width: inherit;
+    margin-left: -76.5px;
+    margin-right: 76.5px;
+}
+
+.rating{
+    max-width: 100%;
+}
+
 @media screen and (max-width: 767px) {
     main {
         margin: 20px 16px 59px;
         width: auto;
     }
+
+    div#footerSock div#footerSockInner div.footerSockLeft {
+        border-bottom: 1px solid #fff;
+        float: none;
+        padding-left: 16px;
+    }
+    div#footerSock div#footerSockInner>div {
+        text-align: left;
+        width: calc(100%)!important;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    div#footerSock div#footerSockInner div.footerSockCenter{
+        margin: 0;
+        border-top: 0;
+    }
+
+    div#footerSock div#footerSockInner div.footerSockRight{
+        border-bottom: 1px solid #fff;
+        float: none;
+    }
+    div#footerSock div#footerSockInner div.footerSockLeft div#fragSocialLinks div.linkList .linksListTitle{
+        font-size: .875em;
+    }
+    div#footerSock div#footerSockInner div.footerSockCenter div.rating>div,
+    div#footerSock div#footerSockInner div.footerSockCenter div.userVoice>div {
+        margin: 0;
+    }
+    div#footerSock div#footerSockInner div.rating div.ratingSection1 .title,
+    div#footerSock div#footerSockInner div.userVoice div.ratingSection1 .title{
+        padding: 0;
+    }
+    div#footerSock div#footerSockInner div.rating div.title,
+    div#footerSock div#footerSockInner div.userVoice div.title {
+        font-size: .875em;
+    }
+    div#footerSock div#footerSockInner div.rating div.buttons>.button,
+    div#footerSock div#footerSockInner div.userVoice div.buttons>.button,
+    div#footerSock div#footerSockInner div.rating div.buttons>div>.button,
+    div#footerSock div#footerSockInner div.userVoice div.buttons>div>.button {
+        font-size: .75em;
+        padding: 4px 8px;
+    }
+    div#footerSock div#footerSockInner div.footerSockRight #fragNewsletter {
+        width: 100%;
+    }
+    div#footerSock div#footerSockInner div.footerSockRight>div {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    div#footerSock div#footerSockInner div.footerSockRight a {
+        font-size: .875em;
+    }
 }
 
-@media screen and (max-width: 1262px) {    
+@media screen and (max-width: 1262px) {
     main {
         width: 90%;
+    }
+    div#footerSock div#footerSockInner div.footerSockLeft div#fragSocialLinks div.linkList .linksListTitle{
+        font-size: 1em;
+    }
+    div#footerSock div#footerSockInner div.rating div.title,
+    div#footerSock div#footerSockInner div.userVoice div.title {
+        font-size: 1em;
+    }
+    div#footerSock div#footerSockInner div.rating div.buttons>.button,
+    div#footerSock div#footerSockInner div.userVoice div.buttons>.button,
+    div#footerSock div#footerSockInner div.rating div.buttons>div>.button,
+    div#footerSock div#footerSockInner div.userVoice div.buttons>div>.button {
+        font-size: .75em;
+    }
+    div#footerSock div#footerSockInner div.footerSockRight a {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    .heropaneltext h1 {
+        font-size: 3vw;
     }
 }
 
@@ -567,6 +1053,164 @@ header div.toc nav ul.navL3 {
     }
     #drawerHuge{
         display: inline-block;
+    }
+    div#footerSock div#footerSockInner{
+        position: relative;
+    }
+    .footerSockLeft{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .footerSockCenter {
+        display: inline-block;
+        vertical-align: top;
+    }
+    #fsr1{
+        display: inline-block;
+    }
+
+    #fsr2{
+        display: none!important;
+    }
+    div#footerSock div#footerSockInner div.footerSockRight {
+        float: right;
+        display: table;
+        height: 60px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+    div#footerSock div#footerSockInner div.footerSockCenter {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+@media screen and (max-width: 960px){
+    #fragHeroContent .richText{
+        height: auto;
+    }
+    .heropaneltext{
+        padding: 12px 30px 30px 27px;
+        font-size: 1rem;
+        line-height: 1.25rem;
+    }
+    .heropanelimg{
+        padding: 1em 0;
+    }
+    .heropaneltext h1{
+        font-size: 1.75rem;
+        padding: 2px 0;
+    }
+    .heropaneltext p{
+        padding-left: 1px;
+    }
+    #fragResourceBand .richText .resourceBand{
+        padding: 10px 0 50px 0;
+    }
+    .resourceBlock{
+        font-size: 1rem;
+    }
+    div#fragFeatures{
+        padding: 30px 0 62px;
+    }
+    #fragFeatures .textContent .link,
+    #fragFeatures .textContent .linkText {
+        font-size: 1rem;
+        line-height: 1.25em;
+    }
+    div#footerSock div#footerSockInner{
+        width: 100%;
+    }
+    div#footerSock div#footerSockInner div.footerSockLeft {
+        padding-left: 16px;
+    }
+    div#footerSock div#footerSockInner div.footerSockCenter{
+        display: inline-block;
+        margin: 0;
+        padding-left: 16px;
+        width: 100%;
+        border-top: 1px solid #fff;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    div#footerSock div#footerSockInner div.footerSockRight{
+        padding-right: 16px;
+    }
+
+    #fsr2{
+        display: inline-block;
+    }
+    #fsr1{
+        display: none!important;
+    }
+    div#footerSock div#footerSockInner div.footerSockCenter div.rating>div,
+    div#footerSock div#footerSockInner div.footerSockCenter div.userVoice>div {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 520px){
+    #fragHeroContent .richText{
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+    }
+    .heropaneltext{
+        padding: 12px 20px 30px 0;
+        -webkit-box-ordinal-group: 3;
+        order: 2;
+    }
+    .heropaneltext h1{
+        font-size: 1.25rem;
+    }
+    #fragResourceBand .richText {
+        border-bottom: none;
+    }
+    #fragResourceBand .richText .resourceBand{
+        padding: 0;
+        width: 98%;
+        margin: 0 auto;
+    }
+    .resourceBlock{
+        float: none;
+        width: 100%;
+        height: 63px;
+        padding-top: 3px;
+        padding-bottom: 2px;
+        margin-right: 0;
+        text-align: left;
+        line-height: 1em;
+        color: #414042;
+        border-bottom: 2px solid #f1f1f1;
+    }
+    .resourceBlock p{
+        margin-top: 23px;
+    }
+    .resourceBlock img {
+        width: 63px;
+        height: auto;
+        margin: 0 1rem 0 0;
+        float: left;
+    }
+    div#fragFeatures{
+        padding: 15px 0 40px 0;
+    }
+    div#fragFeatures .detailedMediaList{
+        height: auto;
+    }
+    #fragFeatures .textContent {
+        padding: 1px 0;
+    }
+    div#fragFeatures .detailedMediaList{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    .detailedMediaList .textContent{
+        margin-bottom: 35px;
     }
 }
 
