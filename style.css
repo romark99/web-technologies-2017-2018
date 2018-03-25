@@ -55,3 +55,576 @@ table {
     border-spacing: 0;
 }
 
+/*my edits*/
+
+#overlayMaskHeader{
+    display: none;
+    height: 1576px;
+    background: rgba(0,0,0,.3);
+    z-index: 1;
+}
+
+div {
+    display: block;
+}
+
+header{
+    background: black;
+    z-index: 0;
+}
+
+header a{
+    text-decoration: none;
+}
+
+a:visited{
+    color: #5a7bad;
+}
+
+a{
+    transition: .1s ease-in-out;
+    text-decoration: none;
+}
+
+#topHeader{
+    min-height: 21px;
+    height: inherit;
+}
+
+#rightHeader{
+    display: none;
+    margin-top: 11px;
+    max-width: 1180px;
+    float: right;
+}
+
+#rightHeader a{
+    color: #ffffff;
+    font-style: normal;
+    font-size: 11px;
+}
+
+#rightHeader a:hover{
+    color: #9C9C9C;
+    font-style: normal;
+}
+
+#leftHeader{
+    float: left;
+}
+
+#auxNavHeader{
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: row;
+}
+
+.subscriptionsHeader{
+    margin-left: 27px;
+}
+
+.subscriptionsSpanHeader{
+    line-height: 18px;
+}
+
+#devCenterHugeNameHeader{
+    display: none;
+}
+
+#devCenterFullNameHeader{
+    display: none;
+}
+
+#devCenterShortNameHeader{
+    display: none;
+}
+
+.clip{
+    width: 70px;
+    height: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.msft-logo{
+    top: -3px;
+    left: -1093px;
+    position: absolute;
+    width: auto;
+    height: auto;
+}
+
+#grayPipeDivHeader{
+    display: inline-block;
+    vertical-align: top;
+    width: 1px;
+    height: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+#msdnLogoImgHeader{
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    height: auto;
+}
+
+.grayPipe{
+    top: -3px;
+    left: -944px;
+    border: none;
+    max-width: none;
+    position: absolute;
+}
+
+#buttomHeader{
+    background-color: #232323;
+}
+
+#rowButtomHeader{
+    max-width: 1180px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#bottomHeader{
+    position: relative;
+    display: grid;
+    grid-column: 1/2;
+    grid-template-columns: 1fr 45px;
+    margin: 0 0 0 16px;
+}
+
+#searchBox{
+    width: auto;
+    height: auto;
+    font-size: .8125rem;
+    font-weight: 400;
+    z-index: 10;
+    background-color: #232323;
+}
+
+#headerSearchForm{
+    display: inline-block;
+    float: right;
+    height: 45px;
+    margin-bottom:0;
+    max-width: initial;
+}
+
+#headerSearchForm button{
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    color: #8b8b8b;
+    display: inline-block;
+    float: right;
+    width: 45px;
+    height: 45px;
+    margin: 0;
+    min-width: 0;
+    background-color: rgba(255,255,255,.15);
+}
+
+#searchFinderDiv{
+    vertical-align: bottom;
+    margin-left: 14px;
+    margin-right: 14px;
+}
+
+.clip2{
+    width: 16px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+#leftBHeader{
+    grid-column: 1/2;
+    float: none;
+    display: inline-block;
+}
+
+#rightBHeader{
+    float: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    grid-column: 2/3;
+}
+
+.search-finder{
+    top: -3px;
+    left: -1047px;
+    position: absolute;
+    width: auto;
+    height: auto;
+}
+
+header img{
+    border: none;
+}
+
+#leftBHeader{
+    display: inline-block;
+}
+
+#grip{
+    display:inline-block;
+    cursor: pointer;
+    margin: 16px 18px 11px 0;
+}
+
+.menu-icon{
+    background: url("https://i-msdn.sec.s-msft.com/Areas/Centers/Themes/StandardDevCenter/Content/HeaderFooterSprite.png?v=636555423305882433") no-repeat scroll -1500px -3px;
+    width: 18px;
+    height: 17px;
+    overflow: hidden;
+}
+
+#drawerHuge{
+    display: none;
+    font-family: wf_segoe-ui_light,'Segoe UI Light','Segoe WP Light',wf_segoe-ui_normal,'Segoe UI',Segoe,'Segoe WP',Tahoma,Verdana,Arial,sans-serif!important;
+    font-weight: 400;
+}
+
+#leftBHeader div{
+    vertical-align: top;
+}
+
+#drawerHuge *{
+    box-sizing: content-box;
+}
+
+main a{
+    color: inherit;
+}
+
+main a:visited{
+    color: inherit;
+}
+
+.navL1{
+    position: relative;
+    vertical-align: top;
+}
+
+.toc{
+    left: -360px;
+    -webkit-transition: left .6s;
+}
+
+div.toc nav ul {
+    padding: 0;
+    margin: 0;
+    line-height: 16px;
+}
+
+div.toc nav>ul>li {
+    float: left;
+    position: relative;
+    padding: 0;
+}
+
+div.toc nav li{
+    list-style-type: none;
+    background: transparent;
+    padding: 0;
+}
+
+header div.toc nav ul.navL2 a {
+    width: 300px;
+}
+
+header div.toc nav ul.navL1>li>a,
+header div.toc nav ul.navL2>li>a,
+header div.toc nav ul.navL3>li>a {
+    font-weight: lighter;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+div.toc nav>ul>li>a::after {
+    content: "";
+    display: inline-block;
+    margin: 0 15px 0 10px;
+}
+
+div.toc nav ul.navL1>li:hover a{
+    background-color: white;
+    color: #555555;
+    text-decoration: none;
+    border-bottom: solid 5px #ffffff;
+}
+
+li.inactiveToggle>a:after{
+    background: url("https://i-msdn.sec.s-msft.com/Areas/Centers/Themes/StandardDevCenter/Content/HeaderFooterSprite.png?v=636555423305882433") no-repeat scroll -899px -3px;
+    width: 10px;
+    height: 6px;
+    overflow: hidden;
+}
+
+ul.navL2{
+    display: none;
+}
+
+header div.toc nav ul.navL2 a,
+header div.toc nav ul.navL3 a {
+    padding: 7px 20px;
+    font-size: 18px;
+    color: #555;
+    line-height: 34px;
+}
+
+header div.toc nav li>a {
+    color: #737373;
+    display: inline-block;
+    font-size: 20px;
+    padding: 0 15px;
+}
+
+.navL1>.inactiveToggle:hover>a:after{
+    background: url("https://i-msdn.sec.s-msft.com/Areas/Centers/Themes/StandardDevCenter/Content/HeaderFooterSprite.png?v=636555423305882433") no-repeat scroll -882px -3px;
+    width: 10px;
+    height: 6px;
+    overflow: hidden;
+}
+
+
+header div.toc nav ul.navL2>li:hover>a,
+header div.toc nav ul.navL3>li:hover>a{
+    background-color: #f2f2f2;
+}
+
+header div.toc nav ul.navL1>li:hover,
+header div.toc nav ul.navL2>li:hover,
+header div.toc nav ul.navL3>li:hover {
+    background-color: #ffffff;
+}
+
+header div.toc nav ul.navL1>li:hover>a,
+header div.toc nav ul.navL2>li:hover>a,
+header div.toc nav ul.navL3>li:hover>a {
+    color: #555;
+    text-decoration: none;
+}
+
+header div.toc nav ul.navL1>li>a {
+    color: #fff;
+    padding: 12px 0 12px 15px;
+    display: inline-block;
+    border-bottom: solid 5px transparent;
+}
+
+ul.navL1>li>a:hover {
+    background-color: white;
+    border-bottom: solid 5px white;
+}
+
+div.toc nav li>a{
+    font-size: 20px;
+}
+
+.navL2{
+    display: none;
+}
+
+h1{
+    font-size: 2.769em;
+    padding: 20px 0 0 0;
+    line-height: 1;
+}
+
+a:link img{
+    border: 0;
+}
+
+#msdnLogoImgHeader img{
+    border: none;
+    max-width: none;
+}
+
+#searchFinderDiv img{
+    max-width: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+h2{
+    font-size: 1.769em;
+    line-height: 1;
+}
+
+h2,h3,h4,h5{
+    font-family: 'Segoe UI Semibold','Segoe UI',Tahoma,Helvetica,sans-serif;
+}
+
+header div.toc nav ul.navL2 {
+    left: -1px;
+    border: 1px solid #bbb;
+    border-top: none;
+    box-shadow: 0 1px 1px 0 rgba(10,10,10,.25);
+}
+
+header div.toc nav ul.navL2,
+header div.toc nav ul.navL3 {
+    display: none;
+    position: absolute;
+    z-index: 200;
+    background-color: #fff;
+    padding: 20px 0;
+    line-height: 1rem;
+    line-height: 16px;
+}
+
+.navL1>.inactiveToggle:hover>.navL2{
+    display: block;
+}
+
+@media screen and (max-width: 767px) {
+    main {
+        margin: 20px 16px 59px;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 1262px) {    
+    main {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 960px){
+    #topRowHeader{
+        width: 97%;
+        max-width: 1180px;
+        margin: 0 auto;
+        height: 39px;
+    }
+    #rightHeader {
+        display: block;
+    }
+    #devCenterHugeNameHeader{
+        display: inline-block;
+        line-height: 37px;
+        font-size: 16px;
+        margin: 0 18px;
+        color: #a0a0a0;
+    }
+    #msdnLogoImgHeader{
+        margin: 10px 0 9px 0;
+    }
+    .clip{
+        width: 70px;
+        height: 15px;
+    }
+    .msft-logo{
+        top: -3px;
+        left: -1093px;
+    }
+    #grayPipeDivHeader{
+        margin: 9px -4px 10px 18px;
+    }
+    #rowButtomHeader{
+        width: 97%;
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    #bottomHeader{
+        margin: 0 0 0 0;
+        display: grid;
+        grid-template-columns: 1fr 45px;
+    }
+    #leftBHeader{
+        grid-column: 1/2;
+        display: inline-block;
+    }
+    #rightBHeader{
+        grid-column: 2/3;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    #searchBox{
+        font-size: 13px;
+    }
+    #headerSearchForm{
+        display: inline-block;
+        float: right;
+        height: 45px;
+        margin-bottom:0;
+        max-width: 300px;
+    }
+    #grip{
+        display:none;
+        margin: 0 10px 0 0;
+    }
+    #drawerHuge{
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 960px) and (min-width: 640px){
+    #devCenterFullNameHeader{
+        display: inline-block;
+        font-size: 14px;
+        margin: 18px 0 14px 0;
+        color: #a0a0a0;
+    }
+    #topHeader{
+        margin-left: 16px;
+    }
+    #topRowHeader{
+        height: 48px;
+    }
+    #msdnLogoImgHeader{
+        margin: 14px 0 15px 0;
+    }
+    .clip{
+        width: 88px;
+        height: 19px;
+    }
+    .msft-logo{
+        top: -3px;
+        left: -952px;
+    }
+    #grayPipeDivHeader{
+        margin: 16px 16px 0 16px;
+    }
+}
+
+@media screen and (max-width: 640px){
+    #devCenterShortNameHeader{
+        display: inline-block;
+        font-size: 14px;
+        margin: 15px 0 14px 0;
+        color: #a0a0a0;
+    }
+    #topHeader{
+        min-height: 21px;
+        margin-left: 16px;
+    }
+    #topRowHeader{
+        height: 42px;
+    }
+    #msdnLogoImgHeader{
+        margin: 11px 0 12px 0;
+    }
+    .clip{
+        width: 88px;
+        height: 19px;
+    }
+    .msft-logo{
+        top: -3px;
+        left: -952px;
+    }
+    #grayPipeDivHeader{
+        margin: 13px 2px 0 4px;
+    }
+}
