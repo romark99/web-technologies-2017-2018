@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request to GitHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <div id="main">
+        <img id="picture">
+        <div>
+            <div>
+                <h1 id="name"></h1>
+                <h3 id="p1"></h3>
+            </div>
+            <div>
+                <p id="bio"></p>
+            </div>
+            <hr>
+            <div>
+                <p class="rows">
+                    <img src="img/people.svg">
+                    <span id="company"></span>
+                </p>
+                <p class="rows">
+                    <img src="img/location.svg">
+                    <span id="location"></span>
+                </p>
+                <p class="rows">
+                    <img src="img/mail.svg">
+                    <span id="email"></span>
+                </p>
+                <p class="rows">
+                    <img src="img/link.svg">
+                    <a id="blog"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+
+<script>
+    fetch('https://api.github.com/users/jeroenptrs')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(user) {
+            //alert(user.login);
+            document.getElementById("p1").innerHTML=user.login;
+            document.getElementById("name").innerHTML=user.name;
+            document.getElementById("picture").setAttribute("src", user.avatar_url);
+            document.getElementById("location").innerHTML=user.location;
+            document.getElementById("bio").innerHTML=user.bio;
+            document.getElementById("company").innerHTML=user.company;
+            document.getElementById("email").innerHTML=user.email;
+            document.getElementById("blog").innerHTML=user.blog;
+            document.getElementById("blog").setAttribute("href", user.blog);
+        })
+        .catch( alert );
+</script>
+</html>
