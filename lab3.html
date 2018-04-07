@@ -6,8 +6,12 @@
     <link rel="stylesheet" href="lab3/style.css">
 </head>
 <body>
+
+<input type="text" id="nickname">
+<input type="submit" onclick="func()" value="Отправить">
+<!--<input type="reset" value="Очистить">-->
 <main>
-    <div id="main">
+    <div class="hidden" id="main">
         <img id="picture">
         <div>
             <div>
@@ -19,45 +23,27 @@
             </div>
             <hr>
             <div>
-                <p class="rows">
+                <div class="rows" id="pCompany">
                     <img src="lab3/img/people.svg">
                     <span id="company"></span>
-                </p>
-                <p class="rows">
+                </div>
+                <div class="rows" id="pLocation">
                     <img src="lab3/img/location.svg">
                     <span id="location"></span>
-                </p>
-                <p class="rows">
+                </div>
+                <div class="rows" id="pEmail">
                     <img src="lab3/img/mail.svg">
                     <span id="email"></span>
-                </p>
-                <p class="rows">
+                </div>
+                <div class="rows" id="pBlog">
                     <img src="lab3/img/link.svg">
                     <a id="blog"></a>
-                </p>
+                </div>
             </div>
         </div>
     </div>
 </main>
 </body>
 
-<script>
-    fetch('https://api.github.com/users/jeroenptrs')
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(user) {
-            //alert(user.login);
-            document.getElementById("p1").innerHTML=user.login;
-            document.getElementById("name").innerHTML=user.name;
-            document.getElementById("picture").setAttribute("src", user.avatar_url);
-            document.getElementById("location").innerHTML=user.location;
-            document.getElementById("bio").innerHTML=user.bio;
-            document.getElementById("company").innerHTML=user.company;
-            document.getElementById("email").innerHTML=user.email;
-            document.getElementById("blog").innerHTML=user.blog;
-            document.getElementById("blog").setAttribute("href", user.blog);
-        })
-        .catch( alert );
-</script>
+<script src="app.js"></script>
 </html>

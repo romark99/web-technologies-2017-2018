@@ -63,7 +63,6 @@ main{
 }
 
 #main{
-    display: flex;
     grid-column: 2/3;
     flex-direction: column;
 }
@@ -83,9 +82,14 @@ h3{
     color: gray;
 }
 
-#main div {
+#main>div,
+#main>div>div{
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+#main>div>div>div{
+    margin-top: 4px;
 }
 
 .rows {
@@ -96,5 +100,13 @@ h3{
 .rows img{
     width: 15px;
     height: 15px;
-    margin-right: 3px;
+    margin-right: 7px;
+}
+
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: flex;
 }
