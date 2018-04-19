@@ -1,0 +1,23 @@
+{
+  "name": "lab2",
+  "version": "1.0.0",
+  "description": "Lab2",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "lodash": "^4.17.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romark99/web-technologies-2017-2018.git"
+  },
+  "author": "Roma Markovski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romark99/web-technologies-2017-2018/issues"
+  },
+  "homepage": "https://github.com/romark99/web-technologies-2017-2018#readme"
+}
