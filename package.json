@@ -4,6 +4,7 @@
   "description": "Lab2",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,7 +22,5 @@
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.14"
   },
-  "dependencies": {
-    "nvm": "0.0.4"
-  }
+  "dependencies": { }
 }
