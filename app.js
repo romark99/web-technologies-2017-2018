@@ -14,9 +14,9 @@ function func() {
             document.getElementById("company").innerHTML = user.company;
             document.getElementById("email").innerHTML = user.email;
             (!(user.company) || user.company==="") ? document.getElementById("pCompany").setAttribute("class", "hidden") :  document.getElementById("pCompany").setAttribute("class", "rows");
-            (!(user.location) || user.location==="") ? document.getElementById("pLocation").setAttribute("class", "hidden"):  document.getElementById("pCompany").setAttribute("class", "rows");
-            (!(user.email) || user.email==="") ? document.getElementById("pEmail").setAttribute("class", "hidden") :  document.getElementById("pCompany").setAttribute("class", "rows");
-            (!(user.blog) || user.blog==="") ?  document.getElementById("pBlog").setAttribute("class", "hidden") :  document.getElementById("pCompany").setAttribute("class", "rows");
+            (!(user.location) || user.location==="") ? document.getElementById("pLocation").setAttribute("class", "hidden"):  document.getElementById("pLocation").setAttribute("class", "rows");
+            (!(user.email) || user.email==="") ? document.getElementById("pEmail").setAttribute("class", "hidden") :  document.getElementById("pEmail").setAttribute("class", "rows");
+            (!(user.blog) || user.blog==="") ?  document.getElementById("pBlog").setAttribute("class", "hidden") :  document.getElementById("pBlog").setAttribute("class", "rows");
             document.getElementById("blog").innerHTML = user.blog;
             document.getElementById("blog").setAttribute("href", user.blog);
         })
