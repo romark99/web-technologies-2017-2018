@@ -15,7 +15,7 @@ function addElem(elem, parent) {
 function addDivWithInfo (parent, textTag, id, imgName, text) {
     if (text!=="" && !!text) {
         let div = createElem("div", {"class": "rows"});
-        let img = createElem("img", {"src": getImagePath(imgName), "id": getSecondId(id)});
+        let img = createElem("img", {"src": getImagePath(imgName)});
         addElem(img, div);
         let elem = createElem(textTag, {"id": id}, text);
         if (textTag = "a") {
@@ -75,10 +75,6 @@ function getPageURL(name) {
 
 function getImagePath(name) {
     return "lab3/img/" + name + ".svg";
-}
-
-function getSecondId(id) {
-    return "p"+id.charAt(0).toUpperCase() + id.slice(1);
 }
 
 export {createUser, getPageURL, createElem, addElem}
