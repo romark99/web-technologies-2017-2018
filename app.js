@@ -1,9 +1,15 @@
-import {createUser, getURL} from "./domGenerator";
-
+import {createUser, getPageURL} from "./domGenerator";
+import {makeErrorPage} from "./errorGenerator";
 
 function func() {
+    let arrMain = document.body.getElementsByTagName("main");
+    if (arrMain.length >0) {
+        for (let i=0; i<arrMain.length; i++) {
+            document.body.removeChild(arrMain[i]);
+        }
+    }
     let userLogin = document.getElementById("nickname").value;
-    fetch(getURL(userLogin))
+    fetch(getPageURL(userLogin))
         .then(function (response) {
             if (response.status > 100 && response.status <= 400)
                 return response.json();
@@ -21,11 +27,7 @@ function func() {
             }
         })
         .then(user => createUser(user))
-        .catch((e)=>{
-        let h1 = document.createElement("h1");
-        h1.innerText = e.toString();
-        document.body.appendChild(h1);
-    });
+        .catch((e)=>makeErrorPage(e));
 }
 
 document.getElementById("btnSubmit").addEventListener("click", func);
