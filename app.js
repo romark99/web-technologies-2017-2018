@@ -1,9 +1,9 @@
-import {createUser} from "./domGenerator";
+import {createUser, getURL} from "./domGenerator";
 
 
 function func() {
     let userLogin = document.getElementById("nickname").value;
-    fetch('https://api.github.com/users/' + userLogin)
+    fetch(getURL(userLogin))
         .then(function (response) {
             if (response.status > 100 && response.status <= 400)
                 return response.json();

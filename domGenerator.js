@@ -16,4 +16,8 @@ function createUser (user) {
     document.getElementById("blog").setAttribute("href", user.blog);
 }
 
-export {createUser}
+function getURL (name) {
+    return 'https://api.github.com/users/'+name;
+}
+
+export {createUser, getURL}
