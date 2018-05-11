@@ -1,0 +1,33 @@
+.iconWithSpaces {
+    margin-right: 5px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: 100px 1fr
+}
+
+.divRequest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divTop {
+    grid-column: 1/3;
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divBottom {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+main>div {
+    padding: 15px;
+}
