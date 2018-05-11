@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from 'react';
-import './Components/icon.js';
+import './Components/Icon/icon.js';
 import './App.css';
-import Info from "./Components/info"
+import Info from "./Components/Info/info"
+import Tabs from "./Components/Tabs/tabs";
 
 class App extends Component {
     render() {
@@ -16,6 +17,11 @@ class App extends Component {
                 </div>
                 <div className="divBottom">
                     <Info/>
+                </div>
+                <div className="gridTabs">
+                    <div className="tab">
+                        <Tabs/>
+                    </div>
                 </div>
             </main>
         );
