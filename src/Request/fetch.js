@@ -1,19 +1,14 @@
 // import {createUser, getPageURL} from "./domGenerator";
 // import {makeErrorPage} from "./errorGenerator";
 
+import store from "../index";
+
 function getPageURL(name) {
     return 'https://api.github.com/users/' + name;
 }
 
-function func(userLogin) {
-    // let arrMain = document.body.getElementsByTagName("main");
-    // if (arrMain.length >0) {
-    //     for (let i=0; i<arrMain.length; i++) {
-    //         document.body.removeChild(arrMain[i]);
-    //     }
-    // }
-    // let userLogin = document.getElementById("nickname").value;
-        return fetch(getPageURL(userLogin))
+let func = (userLogin)=>{
+        fetch(getPageURL(userLogin))
         .then(function (response) {
             if (response.status > 100 && response.status <= 400)
                 return response.json();
@@ -29,11 +24,16 @@ function func(userLogin) {
             else {
                 throw new Error("UNEXPECTED STATE");
             }
+        })
+        .then(responseJSON=>{
+            store.dispatch({
+                type: "FETCH",
+                user: responseJSON
+            });
+
         });
-        // .then(user => createUser(user))
-        // .catch((e)=>makeErrorPage(e));
 }
 
 //document.getElementById("btnSubmit").addEventListener("click", func);
 
-export {func}
+export {func};

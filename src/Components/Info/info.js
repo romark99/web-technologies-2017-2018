@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import './info.css';
 import PicText from "../PicText/picText";
-import {func} from "../../Request/fetch";
 
 class Info extends Component {
     render() {
-        let name = "romark99";
-        let userJSON = func(name);
         return (
-            <div id="main"><img id="picture" src="https://avatars1.githubusercontent.com/u/810438?s=460&v=4"/>
+            <div id="main"><img id="picture" alt="" src="https://avatars1.githubusercontent.com/u/810438?s=460&v=4"/>
                 <div>
                     <div>
                         <h1 id="name">

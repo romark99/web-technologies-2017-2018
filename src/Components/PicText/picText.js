@@ -12,7 +12,7 @@ class PicText extends Component {
         return (
             <li>
                 <Icon icon={icon}/>
-                <span class="text">{comp}</span>
+                <span className="text">{comp}</span>
             </li>
         );
     }

@@ -1,8 +1,9 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import './Components/Icon/icon.js';
 import './App.css';
 import Info from "./Components/Info/info"
 import Tabs from "./Components/Tabs/tabs";
+import {func} from "./Request/fetch";
 
 class App extends Component {
     render() {
@@ -12,7 +13,9 @@ class App extends Component {
                     <h2>Enter user name:</h2>
                     <div className="divRequest">
                         <input type="text" id="nickname"/>
-                        <input id="btnSubmit" type="submit" value="Отправить"/>
+                        <button onClick={()=>{
+                            func(document.getElementById("nickname").value);
+                        }}>Отправить</button>
                     </div>
                 </div>
                 <div className="divBottom">
