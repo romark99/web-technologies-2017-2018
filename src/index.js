@@ -47,25 +47,40 @@ const fetch = (state={user:gaearon}, action) => {
 };
 
 const whatButton = (state={shown:null}, action) => {
+    let obj = Object.assign({}, state);
+    let str;
     switch (action.type) {
         case 'NONE':
-            return Object.assign({}, state, {shown: null});
-        case 'MAIN':
-            return Object.assign({}, state, {shown: 'MAIN'});
-        case 'EDUCATION':
-            return Object.assign({}, state, {shown: 'EDUCATION'});
-        case 'CONTACTS':
-            return Object.assign({}, state, {shown: 'CONTACTS'});
-        case 'ADDITIONALLY':
-            return Object.assign({}, state, {shown: 'ADDITIONALLY'});
-        case 'FOLLOWERS':
-            return Object.assign({}, state, {shown: 'FOLLOWERS'});
-        case 'REPOS':
-            return Object.assign({}, state, {shown: 'REPOS'});
+            return Object.assign({}, obj, {shown: null});
+        case 'MAIN': case 'EDUCATION': case 'CONTACTS':
+            return anotherButton(action.type, state, obj, true);
+        case 'ADDITIONALLY': case 'FOLLOWERS': case 'REPOS':
+            return anotherButton(action.type, state, obj, false);
+        case 'WRITING':
+            str = obj.shown;
+            return Object.assign({}, obj, {[str]: Object.assign({}, obj[str], {mode: 'WRITE'})});
+        case 'SAVING':
+            str = obj.shown;
+            return Object.assign({}, obj, {[str]: Object.assign({}, obj[str], {mode: 'READ', inf: action.text})});
+        case 'DELETE_ALL':
+            return Object.assign({}, {shown:null});
         default:
             return state;
     }
 };
+
+function anotherButton(prop, state, obj, type) {
+    let obj2 = type?{inf: "No information", mode: "READ"}:{inf: "No information."}
+    if (!(prop in state))
+        obj = Object.assign({}, obj, {[prop]: obj2});
+    let arr = Object.getOwnPropertyNames(obj);
+    for (let i=0; i<arr.length; i++) {
+        if (arr[i]!==prop && arr[i]!=='shown' && obj[arr[i]] && 'mode' in obj[arr[i]]) {
+            obj = Object.assign({}, obj, {[arr[i]]: Object.assign({}, obj[arr[i]], {mode: "READ"})});
+        }
+    }
+    return Object.assign({}, obj, {shown: prop});
+}
 
 const userApp = combineReducers({
     fetch,
@@ -75,7 +90,8 @@ const userApp = combineReducers({
 const store = createStore(userApp);
 
 const render = () => {
-    ReactDOM.render(<App />, document.getElementById('root'))
+    ReactDOM.render(<App />, document.getElementById('root'));
+    console.log(store.getState().toString());
 };
 
 store.subscribe(render);
