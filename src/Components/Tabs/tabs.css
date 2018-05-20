@@ -1,3 +1,29 @@
 #editButton {
     float: right;
 }
+
+.inherit {
+    display: block;
+    background-color: inherit;
+}
+
+.gray {
+    display: block;
+    background-color: #ccc;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tabButs {
+
+    padding: 14px 16px;
+
+}
+
+/* Change background color of buttons on hover */
+.tabButs:hover {
+    background-color: #ddd;
+}
+
+.hidden {
+    display: none;
+}

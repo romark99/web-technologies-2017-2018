@@ -3,7 +3,6 @@
 
 import store from "../index";
 import {makeErrorPage} from "../AppError"
-import ReactDOM from "react-dom";
 
 function getPageURL(name) {
     return 'https://api.github.com/users/' + name;

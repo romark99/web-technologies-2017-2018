@@ -40,15 +40,36 @@ const gaearon = {
 const fetch = (state={user:gaearon}, action) => {
     switch (action.type) {
         case 'FETCH':
-            console.log(state);
             return Object.assign({}, state, {user: action.user});
         default:
             return state;
     }
 };
 
+const whatButton = (state={shown:null}, action) => {
+    switch (action.type) {
+        case 'NONE':
+            return Object.assign({}, state, {shown: null});
+        case 'MAIN':
+            return Object.assign({}, state, {shown: 'MAIN'});
+        case 'EDUCATION':
+            return Object.assign({}, state, {shown: 'EDUCATION'});
+        case 'CONTACTS':
+            return Object.assign({}, state, {shown: 'CONTACTS'});
+        case 'ADDITIONALLY':
+            return Object.assign({}, state, {shown: 'ADDITIONALLY'});
+        case 'FOLLOWERS':
+            return Object.assign({}, state, {shown: 'FOLLOWERS'});
+        case 'REPOS':
+            return Object.assign({}, state, {shown: 'REPOS'});
+        default:
+            return state;
+    }
+};
+
 const userApp = combineReducers({
-   fetch
+    fetch,
+    whatButton
 });
 
 const store = createStore(userApp);
@@ -58,11 +79,10 @@ const render = () => {
 };
 
 store.subscribe(render);
-console.log(store.getState());
 render();
 
 export default store;
-export function getUserFromStore() {
+export function getStateFromStore() {
     return store.getState();
 }
 export function getRender() {

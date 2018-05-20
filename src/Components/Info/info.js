@@ -5,7 +5,6 @@ import PicText from "../PicText/picText";
 class Info extends Component {
     render() {
         let user = this.props.user;
-        console.log(user);
         return (
             <div id="main"><img id="picture" alt="" src={user.avatar_url}/>
                 <div>

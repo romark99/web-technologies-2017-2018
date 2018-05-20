@@ -4,19 +4,19 @@ import './App.css';
 import Info from "./Components/Info/info"
 import Tabs from "./Components/Tabs/tabs";
 import {func} from "./Request/fetch";
-import {getUserFromStore} from "./index";
+import {getStateFromStore} from "./index";
 
 class App extends Component {
     render() {
-        let state = getUserFromStore();
+        let state = getStateFromStore();
         let user = state.fetch.user;
         return (
             <main>
                 <div className="divTop">
-                    <h2>Enter user name:</h2>
+                    <h2>Введите имя пользователя:</h2>
                     <div className="divRequest">
                         <input type="text" id="nickname"/>
-                        <button onClick={()=>{
+                        <button className="usualButtons" onClick={()=>{
                             func(document.getElementById("nickname").value);
                         }}>Отправить</button>
                     </div>
