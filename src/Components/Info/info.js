@@ -4,25 +4,26 @@ import PicText from "../PicText/picText";
 
 class Info extends Component {
     render() {
+        let user = this.props.user;
+        console.log(user);
         return (
-            <div id="main"><img id="picture" alt="" src="https://avatars1.githubusercontent.com/u/810438?s=460&v=4"/>
+            <div id="main"><img id="picture" alt="" src={user.avatar_url}/>
                 <div>
                     <div>
                         <h1 id="name">
-                            Dan Abramov
+                            {user.name}
                         </h1>
                         <h3 id="p1">
-                            gaearon
+                            {user.login}
                         </h3>
                     </div>
-                    <div><p id="bio">Working on @reactjs. Co-author of Redux and Create React App. Building tools for
-                        humans.</p>
+                    <div><p id="bio">{user.bio}</p>
                     </div>
                     <hr/>
                     <ul className="list">
-                        <PicText icon="users" text="@facebook"/>
-                        <PicText icon="map-marker-alt" text="London, UK"/>
-                        <PicText icon="envelope" link="http://twitter.com/dan_abramov"/>
+                        <PicText icon="users" text={user.company}/>
+                        <PicText icon="map-marker-alt" text={user.location}/>
+                        <PicText icon="envelope" link={user.blog}/>
                     </ul>
                 </div>
             </div>

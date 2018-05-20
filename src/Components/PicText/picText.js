@@ -9,7 +9,10 @@ class PicText extends Component {
         let ref = this.props.link;
         text = text?text:ref;
         let comp = ref?<a href={ref}>{text}</a>:text;
-        return (
+        if(!text&&!ref){
+            return (null);
+        }
+        else return (
             <li>
                 <Icon icon={icon}/>
                 <span className="text">{comp}</span>

@@ -4,9 +4,12 @@ import './App.css';
 import Info from "./Components/Info/info"
 import Tabs from "./Components/Tabs/tabs";
 import {func} from "./Request/fetch";
+import {getUserFromStore} from "./index";
 
 class App extends Component {
     render() {
+        let state = getUserFromStore();
+        let user = state.fetch.user;
         return (
             <main>
                 <div className="divTop">
@@ -19,7 +22,7 @@ class App extends Component {
                     </div>
                 </div>
                 <div className="divBottom">
-                    <Info/>
+                    <Info user={user}/>
                 </div>
                 <div className="gridTabs">
                     <div className="tab">
