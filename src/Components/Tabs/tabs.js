@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import store from '../../index'
 import {getStateFromStore} from "../../index";
+import {funcAddit} from "../../Request/fetchAdditional";
 import './tabs.css';
 
 class Tabs extends Component {
@@ -12,7 +13,8 @@ class Tabs extends Component {
             if (mode==='READ') {
                 store.dispatch({type: 'WRITING'});
             } else {
-                store.dispatch({type: 'SAVING'});
+                //funcAddit();
+                store.dispatch({type: 'SAVING', text: document.getElementById('textArea').value});
             }
         }
         return (

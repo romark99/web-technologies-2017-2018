@@ -1,6 +1,3 @@
-// import {createUser, getPageURL} from "./domGenerator";
-// import {makeErrorPage} from "./errorGenerator";
-
 import store from "../index";
 import {makeErrorPage} from "../AppError";
 import {getStateFromStore} from "../index";
@@ -40,7 +37,5 @@ let func = (userLogin)=> {
             }).catch(e => makeErrorPage(e));
     }
 };
-
-//document.getElementById("btnSubmit").addEventListener("click", func);
 
 export {func};

@@ -5,7 +5,7 @@ class WriteInf extends Component {
         let inf = this.props.inf;
         return (
             <div>
-                <textarea>{inf}</textarea>
+                <textarea defaultValue={inf} id='textArea'/>
             </div>
         );
     }
