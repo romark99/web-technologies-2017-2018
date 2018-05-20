@@ -65,3 +65,6 @@ export default store;
 export function getUserFromStore() {
     return store.getState();
 }
+export function getRender() {
+    return render;
+}
