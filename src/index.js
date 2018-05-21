@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {combineReducers, createStore} from 'redux'
+import {combineReducers, createStore, applyMiddleware} from 'redux';
+//import {composeWithDevTools} from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
 const gaearon = {
     login: "gaearon",
@@ -89,7 +91,7 @@ const userApp = combineReducers({
     whatButton
 });
 
-const store = createStore(userApp);
+const store = createStore(userApp, applyMiddleware(thunk));
 
 const render = () => {
     ReactDOM.render(<App />, document.getElementById('root'));

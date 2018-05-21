@@ -8,9 +8,19 @@ import {getStateFromStore} from "./index";
 import ShowInf from "./Components/Tab/ShowInf/showInf";
 import WriteInf from "./Components/Tab/WriteInf/writeInf";
 import ShowList from "./Components/Tab/ShowList/showList";
+import store from "./index";
 
 class App extends Component {
     render() {
+        const asyncFetchUser = () => {
+            return dispatch => {
+                setTimeout(()=> {
+                    func(document.getElementById("nickname").value, dispatch);
+                }, 2000)
+            }
+        };
+        let foo = ()=>store.dispatch(asyncFetchUser());
+
         let state = getStateFromStore();
         let user = state.fetch.user;
         let btn = state.whatButton.shown;
@@ -39,9 +49,7 @@ class App extends Component {
                     <h2>Введите имя пользователя:</h2>
                     <div className="divRequest">
                         <input type="text" id="nickname"/>
-                        <button className="usualButtons" onClick={()=>{
-                            func(document.getElementById("nickname").value);
-                        }}>Отправить</button>
+                        <button className="usualButtons" onClick={()=>foo()}>Отправить</button>
                     </div>
                 </div>
                 <div className="divBottom">
