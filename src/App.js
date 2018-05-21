@@ -7,23 +7,32 @@ import {func} from "./Request/fetchUser";
 import {getStateFromStore} from "./index";
 import ShowInf from "./Components/Tab/ShowInf/showInf";
 import WriteInf from "./Components/Tab/WriteInf/writeInf";
+import ShowList from "./Components/Tab/ShowList/showList";
 
 class App extends Component {
     render() {
         let state = getStateFromStore();
         let user = state.fetch.user;
         let btn = state.whatButton.shown;
-        function getElement(mode) {
-            if (mode==='READ') {
-                return <ShowInf inf={state.whatButton[btn].inf}/>;
-            }
-            else if (mode==='WRITE'){
-                return <WriteInf inf={state.whatButton[btn].inf}/>;
+        function getElement() {
+            if (btn) {
+                if (state.whatButton[btn].mode==='READ') {
+                    return <ShowInf inf={state.whatButton[btn].inf}/>;
+                }
+                else if (state.whatButton[btn].mode==='WRITE'){
+                    return <WriteInf inf={state.whatButton[btn].inf}/>;
+                }
+                else if (state.whatButton[btn].list) {
+                    return <ShowList list={state.whatButton[btn].list}/>
+                }
+                else
+                    return (null);
             }
             else
                 return (null);
         }
-        let elem = getElement(!(state.whatButton[btn])?'':state.whatButton[btn].mode);
+        // !(state.whatButton[btn])?'':state.whatButton[btn].mode
+        let elem = getElement();
         return (
             <main>
                 <div className="divTop">

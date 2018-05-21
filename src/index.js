@@ -55,7 +55,7 @@ const whatButton = (state={shown:null}, action) => {
         case 'MAIN': case 'EDUCATION': case 'CONTACTS':
             return anotherButton(action.type, state, obj, true);
         case 'ADDITIONALLY': case 'FOLLOWERS': case 'REPOS':
-            return anotherButton(action.type, state, obj, false);
+            return anotherButton(action.type, state, obj, false, action.list);
         case 'WRITING':
             str = obj.shown;
             return Object.assign({}, obj, {[str]: Object.assign({}, obj[str], {mode: 'WRITE'})});
@@ -69,8 +69,10 @@ const whatButton = (state={shown:null}, action) => {
     }
 };
 
-function anotherButton(prop, state, obj, type) {
-    let obj2 = type?{inf: "No information", mode: "READ"}:{inf: "No information."}
+function anotherButton(prop, state, obj, type, list) {
+    let obj2 = type?{inf: "No information", mode: "READ"}:{
+        list: list
+    };
     if (!(prop in state))
         obj = Object.assign({}, obj, {[prop]: obj2});
     let arr = Object.getOwnPropertyNames(obj);
