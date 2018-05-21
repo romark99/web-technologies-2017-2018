@@ -22,9 +22,9 @@ class Tabs extends Component {
                 <button className={'tabButs '+(state.whatButton.shown==='MAIN'?'gray':'inherit')} onClick={()=>store.dispatch({type: 'MAIN'})}>Основное</button>
                 <button className={'tabButs '+(state.whatButton.shown==='EDUCATION'?'gray':'inherit')} onClick={()=>store.dispatch({type: 'EDUCATION'})}>Образование</button>
                 <button className={'tabButs '+(state.whatButton.shown==='CONTACTS'?'gray':'inherit')} onClick={()=>store.dispatch({type: 'CONTACTS'})}>Контакты</button>
-                <button className={'tabButs '+(state.whatButton.shown==='ADDITIONALLY'?'gray':'inherit')} onClick={()=>funcAddit()}>Дополнительно</button>
-                <button className={'tabButs '+(state.whatButton.shown==='FOLLOWERS'?'gray':'inherit')} onClick={()=>store.dispatch({type: 'FOLLOWERS'})}>Последователи</button>
-                <button className={'tabButs '+(state.whatButton.shown==='REPOS'?'gray':'inherit')} onClick={()=>store.dispatch({type: 'REPOS'})}>Репозитории</button>
+                <button className={'tabButs '+(state.whatButton.shown==='ADDITIONALLY'?'gray':'inherit')} onClick={()=>funcAddit('ADDITIONALLY')}>Дополнительно</button>
+                <button className={'tabButs '+(state.whatButton.shown==='FOLLOWERS'?'gray':'inherit')} onClick={()=>funcAddit('FOLLOWERS')}>Последователи</button>
+                <button className={'tabButs '+(state.whatButton.shown==='REPOS'?'gray':'inherit')} onClick={()=>funcAddit('REPOS')}>Репозитории</button>
                 <button className={'tabButs inherit'+((state.whatButton.shown==='MAIN'||state.whatButton.shown==='EDUCATION'||state.whatButton.shown==='CONTACTS')?'':' hidden')}
                         id="editButton"
                         onClick={()=>editOrSave(state.whatButton[btn].mode)}>{!(state.whatButton[btn])||state.whatButton[btn].mode==='READ'?'Редактировать':'Сохранить'}</button>

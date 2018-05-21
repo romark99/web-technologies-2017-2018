@@ -2,13 +2,25 @@ import store from "../index";
 import {makeErrorPage} from "../AppError";
 import {getStateFromStore} from "../index";
 
-function getPageURL(name) {
-    return 'https://api.github.com/users/' + name + '/orgs';
-}
+// function getAdditional(name) {
+//     return 'https://api.github.com/users/' + name + '/orgs';
+// }
 
-let funcAddit = ()=> {
+let funcAddit = (what)=> {
+    let foo;
+    switch (what) {
+        case 'ADDITIONALLY':
+            foo = (name) => 'https://api.github.com/users/' + name + '/orgs';
+            break;
+        case 'FOLLOWERS':
+            foo = (name) => 'https://api.github.com/users/' + name + '/followers';
+            break;
+        case 'REPOS':
+            foo = (name) => 'https://api.github.com/users/' + name + '/repos';
+            break;
+    }
     let state = getStateFromStore();
-    fetch(getPageURL(state.fetch.user.login))
+    fetch(foo(state.fetch.user.login))
         .then(function (response) {
             if (response.status > 100 && response.status <= 400)
                 return response.json();
@@ -27,7 +39,7 @@ let funcAddit = ()=> {
         })
         .then(responseJSON => {
             store.dispatch({
-                type: "ADDITIONALLY",
+                type: what,
                 list: responseJSON
             });
         }).catch(e => makeErrorPage(e));

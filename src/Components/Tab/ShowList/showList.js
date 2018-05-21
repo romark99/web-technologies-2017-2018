@@ -4,8 +4,8 @@ class ShowList extends Component {
     render() {
         return (
             <ul>
-                {this.props.list.map(elem=>elem.login).map(login=>{
-                    return <li>{login}</li>
+                {this.props.list.map(elem=>{ return {login: elem.login, id: elem.id}}).map(elem=>{
+                    return <li key={elem.id}>{elem.login}</li>
                 })}
             </ul>
         );

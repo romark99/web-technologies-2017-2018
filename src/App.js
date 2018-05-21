@@ -9,6 +9,8 @@ import ShowInf from "./Components/Tab/ShowInf/showInf";
 import WriteInf from "./Components/Tab/WriteInf/writeInf";
 import ShowList from "./Components/Tab/ShowList/showList";
 import store from "./index";
+import ShowFollowers from "./Components/Tab/ShowList/showFollowers";
+import ShowRepos from "./Components/Tab/ShowList/showRepos";
 
 class App extends Component {
     render() {
@@ -32,8 +34,14 @@ class App extends Component {
                 else if (state.whatButton[btn].mode==='WRITE'){
                     return <WriteInf inf={state.whatButton[btn].inf}/>;
                 }
-                else if (state.whatButton[btn].list) {
+                else if (btn==='ADDITIONALLY') {
                     return <ShowList list={state.whatButton[btn].list}/>
+                }
+                else if (btn==='FOLLOWERS') {
+                    return <ShowFollowers list={state.whatButton[btn].list}/>
+                }
+                else if (btn==='REPOS') {
+                    return <ShowRepos list={state.whatButton[btn].list}/>
                 }
                 else
                     return (null);
