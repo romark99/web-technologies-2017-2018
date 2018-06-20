@@ -14,17 +14,17 @@ import ShowRepos from "./Components/Tab/ShowList/showRepos";
 
 class App extends Component {
     render() {
-        const asyncFetchUser = () => {
-            return dispatch => {
-                setTimeout(()=> {
-                    func(document.getElementById("nickname").value, dispatch);
-                }, 2000)
-            }
-        };
-        let foo = ()=>store.dispatch(asyncFetchUser());
+        // const asyncFetchUser = () => {
+        //     return dispatch => {
+        //         setTimeout(()=> {
+        //             func(document.getElementById("nickname").value, dispatch);
+        //         }, 2000)
+        //     }
+        // };
+        // let foo = ()=>store.dispatch(asyncFetchUser());
 
         let state = getStateFromStore();
-        let user = state.fetch.user;
+        let user = state.reducerUser.user;
         let btn = state.whatButton.shown;
         function getElement() {
             if (btn) {
@@ -49,7 +49,12 @@ class App extends Component {
             else
                 return (null);
         }
-        // !(state.whatButton[btn])?'':state.whatButton[btn].mode
+
+        //Action creator
+        const fetchUser = () => {
+            return { type: 'FETCHED_USER' }
+        };
+
         let elem = getElement();
         return (
             <main>
@@ -57,7 +62,7 @@ class App extends Component {
                     <h2>Введите имя пользователя:</h2>
                     <div className="divRequest">
                         <input type="text" id="nickname"/>
-                        <button className="usualButtons" onClick={()=>foo()}>Отправить</button>
+                        <button className="usualButtons" onClick={()=>store.dispatch(fetchUser())}>Отправить</button>
                     </div>
                 </div>
                 <div className="divBottom">

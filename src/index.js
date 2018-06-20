@@ -2,9 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import {takeEvery} from 'redux-saga';
 import {combineReducers, createStore, applyMiddleware} from 'redux';
+import fetchUserAsync from './Request/fetchUser';
+import createSagaMiddleware from 'redux-saga';
+import {makeErrorPage} from "./AppError";
 //import {composeWithDevTools} from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
+//import thunk from 'redux-thunk';
 
 const gaearon = {
     login: "gaearon",
@@ -39,10 +43,14 @@ const gaearon = {
     updated_at: "2018-04-19T01:00:14Z"
 };
 
-const fetch = (state={user:gaearon}, action) => {
+const reducerUser = (state={user:gaearon, loading:false, error:false}, action) => {
     switch (action.type) {
-        case 'FETCH':
-            return Object.assign({}, state, {user: action.user});
+        case 'REQUESTED_USER':
+            return Object.assign({}, state, {loading:true, error:false});
+        case 'REQUESTED_USER_SUCCEEDED':
+            return Object.assign({}, state, {user: action.user, loading:false, error:false});
+        case 'REQUESTED_USER_FAILED':
+            return Object.assign({}, state, {loading:false, error:true});
         default:
             return state;
     }
@@ -87,11 +95,18 @@ function anotherButton(prop, state, obj, type, list) {
 }
 
 const userApp = combineReducers({
-    fetch,
+    reducerUser,
     whatButton
 });
 
-const store = createStore(userApp, applyMiddleware(thunk));
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(userApp, applyMiddleware(sagaMiddleware));
+
+function* watchFetches() {
+    yield takeEvery('FETCHED_USER', fetchUserAsync);
+}
+
+sagaMiddleware.run(watchFetches);
 
 const render = () => {
     ReactDOM.render(<App />, document.getElementById('root'));
