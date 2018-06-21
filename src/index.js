@@ -6,6 +6,9 @@ import {takeEvery} from 'redux-saga';
 import {combineReducers, createStore, applyMiddleware} from 'redux';
 import fetchUserAsync from './Request/fetchUser';
 import createSagaMiddleware from 'redux-saga';
+import fetchAdditAsync from './Request/fetchAddit'
+import fetchFollowersAsync from './Request/fetchFollowers'
+import fetchReposAsync from './Request/fetchRepos'
 import {makeErrorPage} from "./AppError";
 //import {composeWithDevTools} from 'redux-devtools-extension';
 //import thunk from 'redux-thunk';
@@ -43,14 +46,33 @@ const gaearon = {
     updated_at: "2018-04-19T01:00:14Z"
 };
 
+function anotherButton(prop, state, obj, type, list) {
+    let obj2 = type?{inf: "No information", mode: "READ"}:{
+        list: list
+    };
+    if (!(prop in state)) {
+        obj = Object.assign({}, obj, {[prop]: obj2});
+    }
+    let arr = Object.getOwnPropertyNames(obj);
+    for (let i=0; i<arr.length; i++) {
+        if (arr[i]!==prop && arr[i]!=='shown' && obj[arr[i]] && typeof obj[arr[i]] === 'object' && 'mode' in obj[arr[i]]) {
+            obj = Object.assign({}, obj, {[arr[i]]: Object.assign({}, obj[arr[i]], {mode: "READ"})});
+        }
+    }
+    return Object.assign({}, obj, {shown: prop});
+}
+
 const reducerUser = (state={user:gaearon, loading:false, error:false}, action) => {
+    let obj = Object.assign({}, state);
     switch (action.type) {
-        case 'REQUESTED_USER':
+        case 'REQUESTED_USER': case 'REQUESTED_ADDITIONALLY':
+        case 'REQUESTED_FOLLOWERS': case 'REQUESTED_REPOS':
             return Object.assign({}, state, {loading:true, error:false});
+        case 'REQUESTED_USER_FAILED': case 'REQUESTED_ADDITIONALLY_FAILED':
+        case 'REQUESTED_FOLLOWERS_FAILED': case 'REQUESTED_REPOS_FAILED':
+            return Object.assign({}, state, {loading:false, error:true});
         case 'REQUESTED_USER_SUCCEEDED':
             return Object.assign({}, state, {user: action.user, loading:false, error:false});
-        case 'REQUESTED_USER_FAILED':
-            return Object.assign({}, state, {loading:false, error:true});
         default:
             return state;
     }
@@ -64,8 +86,11 @@ const whatButton = (state={shown:null}, action) => {
             return Object.assign({}, obj, {shown: null});
         case 'MAIN': case 'EDUCATION': case 'CONTACTS':
             return anotherButton(action.type, state, obj, true);
-        case 'ADDITIONALLY': case 'FOLLOWERS': case 'REPOS':
-            return anotherButton(action.type, state, obj, false, action.list);
+        // case 'ADDITIONALLY': case 'FOLLOWERS': case 'REPOS':
+        //     return anotherButton(action.type, state, obj, false, action.list);
+        case 'ADDITIONALLY':
+        case 'FOLLOWERS': case 'REPOS':
+        return Object.assign({}, state, anotherButton(action.type, state, obj, false, action.list),{loading:false, error:false});
         case 'WRITING':
             str = obj.shown;
             return Object.assign({}, obj, {[str]: Object.assign({}, obj[str], {mode: 'WRITE'})});
@@ -79,21 +104,6 @@ const whatButton = (state={shown:null}, action) => {
     }
 };
 
-function anotherButton(prop, state, obj, type, list) {
-    let obj2 = type?{inf: "No information", mode: "READ"}:{
-        list: list
-    };
-    if (!(prop in state))
-        obj = Object.assign({}, obj, {[prop]: obj2});
-    let arr = Object.getOwnPropertyNames(obj);
-    for (let i=0; i<arr.length; i++) {
-        if (arr[i]!==prop && arr[i]!=='shown' && obj[arr[i]] && 'mode' in obj[arr[i]]) {
-            obj = Object.assign({}, obj, {[arr[i]]: Object.assign({}, obj[arr[i]], {mode: "READ"})});
-        }
-    }
-    return Object.assign({}, obj, {shown: prop});
-}
-
 const userApp = combineReducers({
     reducerUser,
     whatButton
@@ -104,6 +114,9 @@ const store = createStore(userApp, applyMiddleware(sagaMiddleware));
 
 function* watchFetches() {
     yield takeEvery('FETCHED_USER', fetchUserAsync);
+    yield takeEvery('FETCHED_ADDIT', fetchAdditAsync);
+    yield takeEvery('FETCHED_FOLLOWERS', fetchFollowersAsync);
+    yield takeEvery('FETCHED_REPOS', fetchReposAsync);
 }
 
 sagaMiddleware.run(watchFetches);
