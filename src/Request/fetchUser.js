@@ -34,7 +34,7 @@ const requestUserSuccess = (data) => {
 };
 
 const requestUserError = (error) => {
-    return { type: 'REQUESTED_USER_FAILED', errorMessage: error}
+    return { type: 'REQUESTED_USER_FAILED', errorMessage: error.toString()}
 };
 
 const requestDeleteAll = () => {

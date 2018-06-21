@@ -70,9 +70,11 @@ const reducerUser = (state={user:gaearon, loading:false, error:false}, action) =
             return Object.assign({}, state, {loading:true, error:false});
         case 'REQUESTED_USER_FAILED': case 'REQUESTED_ADDITIONALLY_FAILED':
         case 'REQUESTED_FOLLOWERS_FAILED': case 'REQUESTED_REPOS_FAILED':
-            return Object.assign({}, state, {loading:false, error:true});
+            return Object.assign({}, state, {loading:false, error:true, message: action.errorMessage});
         case 'REQUESTED_USER_SUCCEEDED':
             return Object.assign({}, state, {user: action.user, loading:false, error:false});
+        case 'SUCCEEDED':
+            return Object.assign({}, state, {loading:false, error:false});
         default:
             return state;
     }
@@ -90,7 +92,7 @@ const whatButton = (state={shown:null}, action) => {
         //     return anotherButton(action.type, state, obj, false, action.list);
         case 'ADDITIONALLY':
         case 'FOLLOWERS': case 'REPOS':
-        return Object.assign({}, state, anotherButton(action.type, state, obj, false, action.list),{loading:false, error:false});
+            return Object.assign({}, state, anotherButton(action.type, state, obj, false, action.list),{loading:false, error:false});
         case 'WRITING':
             str = obj.shown;
             return Object.assign({}, obj, {[str]: Object.assign({}, obj[str], {mode: 'WRITE'})});
@@ -123,7 +125,7 @@ sagaMiddleware.run(watchFetches);
 
 const render = () => {
     ReactDOM.render(<App />, document.getElementById('root'));
-    console.log(store.getState().toString());
+    console.log(store.getState());
 };
 
 store.subscribe(render);

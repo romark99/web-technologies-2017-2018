@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import './Components/Icon/icon.js';
 import './App.css';
 import Info from "./Components/Info/info"
@@ -65,17 +65,33 @@ class App extends Component {
                         <button className="usualButtons" onClick={()=>store.dispatch(fetchUser())}>Отправить</button>
                     </div>
                 </div>
-                <div className="divBottom">
-                    <Info user={user}/>
-                </div>
-                <div className="gridTabs">
-                    <div className="tab">
-                        <Tabs/>
-                    </div>
-                    <div className="mainPart">
-                        {elem}
-                    </div>
-                </div>
+                {
+                    state.reducerUser.loading===true
+                        ?
+                        <Fragment>
+                            <h1 className="loadingError">Loading...</h1>
+                        </Fragment>
+                        :
+                    state.reducerUser.error===true
+                        ?
+                        <Fragment>
+                            <h1 className="loadingError">{state.reducerUser.message}</h1>
+                        </Fragment>
+                        :
+                        <Fragment>
+                            <div className="divBottom">
+                                <Info user={user}/>
+                            </div>
+                            <div className="gridTabs">
+                                <div className="tab">
+                                    <Tabs/>
+                                </div>
+                                <div className="mainPart">
+                                    {elem}
+                                </div>
+                            </div>
+                        </Fragment>
+                }
             </main>
         );
     }

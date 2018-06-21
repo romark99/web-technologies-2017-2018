@@ -11,6 +11,10 @@ const requestAdditSuccess = (data) => {
     return { type: 'REPOS', list: data}
 };
 
+const requestSuccess = ()=> {
+    return {type: 'SUCCEEDED'}
+};
+
 const requestAdditError = (error) => {
     return { type: 'REQUESTED_REPOS_FAILED', errorMessage: error}
 };
@@ -25,6 +29,7 @@ export default function* fetchReposAsync() {
                 .then(response => isError(response));
         });
         yield put(requestAdditSuccess(data));
+        yield put(requestSuccess());
     } catch (error) {
         yield put(requestAdditError(error))
     }
