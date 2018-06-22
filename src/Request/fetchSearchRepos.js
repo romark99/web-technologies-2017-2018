@@ -23,17 +23,37 @@ const requestDeleteAll = () => {
     return {type: 'DELETE_ALL'}
 };
 
-const getUrl = (repo) => {
-    return 'https://api.github.com/search/repositories?q=' + repo;
+const getUrl = (repo, filterJS, filterWithoutStars) => {
+    let str = 'https://api.github.com/search/repositories';
+    if (repo !== '') {
+        str = str
+            + '?q='
+            + repo
+            + (filterJS ? '+language:JavaScript' : '')
+            + (filterWithoutStars ? '+stars:0' : '');
+    } else {
+        if (filterJS) {
+            str = str
+                + '?q=language:JavaScript'
+                + (filterWithoutStars ? '+stars:0' : '');
+        }
+        else {
+            str = str
+                + (filterWithoutStars ? '?q=stars:0' : "?q=*");
+        }
+    }
+    return str;
 };
 
 export default function* fetchReposAsync() {
     let repo = document.getElementById("repo").value;
+    let filterJS = document.getElementById("filterJavaScript").checked;
+    let filterWithoutStars = document.getElementById("filterWithoutStars").checked;
     try {
         yield put(requestAddit());
         yield put(requestDeleteAll());
         const data = yield call(() => {
-            return fetch(getUrl(repo))
+            return fetch(getUrl(repo, filterJS, filterWithoutStars))
                 .then(response => isError(response))
                 .then(response => response.items)
         });

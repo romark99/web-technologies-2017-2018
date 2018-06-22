@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import store from "../../../index";
+import "../../../App.css"
+import "./searchRepos.css"
 
 class SearchRepos extends Component {
     render() {
@@ -9,10 +11,23 @@ class SearchRepos extends Component {
         };
 
         return (
-            <div>
-                <div>
-                    <input type="text" id="repo"/>
-                    <button className="usualButtons" onClick={()=>store.dispatch(fetchSearchRepos())}>Отправить</button>
+            <div id="searchReposTable">
+                <div className="searchReposDivRequest" id="reposRequest">
+                    <h3>Введите репозиторий:</h3>
+                    <div>
+                        <input type="text" id="repo"/>
+                        <button className="usualButtons" onClick={()=>store.dispatch(fetchSearchRepos())}>Отправить</button>
+                    </div>
+                </div>
+                <div className="searchReposDivRequest" id="reposFilter">
+                    <div>
+                        <input type="checkbox" id="filterJavaScript"/>
+                        <label htmlFor="filterJavaScript">Найти репозитории на JavaScript</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="filterWithoutStars"/>
+                        <label htmlFor="filterWithoutStars">Найти репозитории без звезд</label>
+                    </div>
                 </div>
                 <ul>
                 {this.props.list.map(elem=>{ return {
