@@ -4,7 +4,7 @@ import isError from "./isError";
 
 // Action Creators
 const requestAddit = () => {
-    return { type: 'REQUESTED_ADDITIONALLY'}
+    return { type: 'REQUESTED'}
 };
 
 const requestAdditSuccess = (data) => {
@@ -12,7 +12,7 @@ const requestAdditSuccess = (data) => {
 };
 
 const requestAdditError = (error) => {
-    return { type: 'REQUESTED_ADDITIONALLY_FAILED', errorMessage: error}
+    return { type: 'FAILED', errorMessage: error}
 };
 
 const requestSuccess = ()=> {

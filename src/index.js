@@ -9,6 +9,7 @@ import createSagaMiddleware from 'redux-saga';
 import fetchAdditAsync from './Request/fetchAddit'
 import fetchFollowersAsync from './Request/fetchFollowers'
 import fetchReposAsync from './Request/fetchRepos'
+import fetchSearchReposAsync from './Request/fetchSearchRepos'
 import {makeErrorPage} from "./AppError";
 //import {composeWithDevTools} from 'redux-devtools-extension';
 //import thunk from 'redux-thunk';
@@ -50,7 +51,7 @@ function anotherButton(prop, state, obj, type, list) {
     let obj2 = type?{inf: "No information", mode: "READ"}:{
         list: list
     };
-    if (!(prop in state)) {
+    if (!(prop in state) || state[prop].list.length === 0) {
         obj = Object.assign({}, obj, {[prop]: obj2});
     }
     let arr = Object.getOwnPropertyNames(obj);
@@ -65,11 +66,9 @@ function anotherButton(prop, state, obj, type, list) {
 const reducerUser = (state={user:gaearon, loading:false, error:false}, action) => {
     let obj = Object.assign({}, state);
     switch (action.type) {
-        case 'REQUESTED_USER': case 'REQUESTED_ADDITIONALLY':
-        case 'REQUESTED_FOLLOWERS': case 'REQUESTED_REPOS':
+        case 'REQUESTED':
             return Object.assign({}, state, {loading:true, error:false});
-        case 'REQUESTED_USER_FAILED': case 'REQUESTED_ADDITIONALLY_FAILED':
-        case 'REQUESTED_FOLLOWERS_FAILED': case 'REQUESTED_REPOS_FAILED':
+        case 'FAILED':
             return Object.assign({}, state, {loading:false, error:true, message: action.errorMessage});
         case 'REQUESTED_USER_SUCCEEDED':
             return Object.assign({}, state, {user: action.user, loading:false, error:false});
@@ -91,8 +90,10 @@ const whatButton = (state={shown:null}, action) => {
         // case 'ADDITIONALLY': case 'FOLLOWERS': case 'REPOS':
         //     return anotherButton(action.type, state, obj, false, action.list);
         case 'ADDITIONALLY':
-        case 'FOLLOWERS': case 'REPOS':
-            return Object.assign({}, state, anotherButton(action.type, state, obj, false, action.list),{loading:false, error:false});
+        case 'FOLLOWERS': case 'REPOS': case 'SEARCH_REPOS':
+            return Object.assign({}, state, anotherButton(action.type, state, obj, false, action.list));
+        case 'SHOW_SEARCH_REPOS':
+            return Object.assign({}, state, anotherButton('SEARCH_REPOS', state, obj, false, []));
         case 'WRITING':
             str = obj.shown;
             return Object.assign({}, obj, {[str]: Object.assign({}, obj[str], {mode: 'WRITE'})});
@@ -119,6 +120,7 @@ function* watchFetches() {
     yield takeEvery('FETCHED_ADDIT', fetchAdditAsync);
     yield takeEvery('FETCHED_FOLLOWERS', fetchFollowersAsync);
     yield takeEvery('FETCHED_REPOS', fetchReposAsync);
+    yield takeEvery('FETCHED_SEARCH_REPOS', fetchSearchReposAsync);
 }
 
 sagaMiddleware.run(watchFetches);

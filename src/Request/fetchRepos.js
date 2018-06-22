@@ -4,7 +4,7 @@ import isError from "./isError";
 
 // Action Creators
 const requestAddit = () => {
-    return { type: 'REQUESTED_REPOS'}
+    return { type: 'REQUESTED'}
 };
 
 const requestAdditSuccess = (data) => {
@@ -16,7 +16,7 @@ const requestSuccess = ()=> {
 };
 
 const requestAdditError = (error) => {
-    return { type: 'REQUESTED_REPOS_FAILED', errorMessage: error}
+    return { type: 'FAILED', errorMessage: error}
 };
 
 export default function* fetchReposAsync() {

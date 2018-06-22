@@ -8,7 +8,7 @@ const requestAddit = () => {
 };
 
 const requestAdditSuccess = (data) => {
-    return { type: 'FOLLOWERS', list: data}
+    return { type: 'SEARCH_REPOS', list: data}
 };
 
 const requestSuccess = ()=> {
@@ -16,17 +16,26 @@ const requestSuccess = ()=> {
 };
 
 const requestAdditError = (error) => {
-    return { type: 'FAILED', errorMessage: error}
+    return { type: 'FAILED', errorMessage: error.toString()}
 };
 
-export default function* fetchFollowersAsync() {
-    let state = getStateFromStore();
-    let url = state.reducerUser.user.followers_url;
+const requestDeleteAll = () => {
+    return {type: 'DELETE_ALL'}
+};
+
+const getUrl = (repo) => {
+    return 'https://api.github.com/search/repositories?q=' + repo;
+};
+
+export default function* fetchReposAsync() {
+    let repo = document.getElementById("repo").value;
     try {
         yield put(requestAddit());
+        yield put(requestDeleteAll());
         const data = yield call(() => {
-            return fetch(url)
-                .then(response => isError(response));
+            return fetch(getUrl(repo))
+                .then(response => isError(response))
+                .then(response => response.items)
         });
         yield put(requestAdditSuccess(data));
         yield put(requestSuccess());

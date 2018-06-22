@@ -11,6 +11,7 @@ import ShowList from "./Components/Tab/ShowList/showList";
 import store from "./index";
 import ShowFollowers from "./Components/Tab/ShowList/showFollowers";
 import ShowRepos from "./Components/Tab/ShowList/showRepos";
+import SearchRepos from "./Components/Tab/SearchRepos/searchRepos"
 
 class App extends Component {
     render() {
@@ -42,6 +43,9 @@ class App extends Component {
                 }
                 else if (btn==='REPOS') {
                     return <ShowRepos list={state.whatButton[btn].list}/>
+                }
+                else if (btn==='SEARCH_REPOS') {
+                    return <SearchRepos list={state.whatButton[btn].list}/>
                 }
                 else
                     return (null);

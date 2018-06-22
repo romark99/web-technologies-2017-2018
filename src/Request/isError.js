@@ -5,12 +5,12 @@ export default function isError(response) {
         throw new Error("404: NOT FOUND");
     }
     else if (response.status > 400 && response.status < 500) {
-        throw new Error(response.status + ": SOME CLIENT ERROR");
+        throw new Error(response.status.toString() + ": SOME CLIENT ERROR");
     }
     else if (response.status > 500 && response.status < 600) {
-        throw new Error(response.status + ": SOME SERVER ERROR");
+        throw new Error(response.status.toString() + ": SOME SERVER ERROR");
     }
     else {
-        throw new Error(response.status + ": UNEXPECTED STATE");
+        throw new Error(response.status.toString() + ": UNEXPECTED STATE");
     }
 }
