@@ -11,7 +11,7 @@ class SearchRepos extends Component {
         };
 
         return (
-            <div id="searchReposTable">
+            <div className="searchReposTable">
                 <div className="searchReposDivRequest" id="reposRequest">
                     <h3>Введите репозиторий:</h3>
                     <div>

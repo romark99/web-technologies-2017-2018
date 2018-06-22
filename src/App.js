@@ -12,6 +12,7 @@ import store from "./index";
 import ShowFollowers from "./Components/Tab/ShowList/showFollowers";
 import ShowRepos from "./Components/Tab/ShowList/showRepos";
 import SearchRepos from "./Components/Tab/SearchRepos/searchRepos"
+import SearchPopularAndNewest from "./Components/Tab/SearchRepos/searchPopularAndNewest";
 
 class App extends Component {
     render() {
@@ -46,6 +47,9 @@ class App extends Component {
                 }
                 else if (btn==='SEARCH_REPOS') {
                     return <SearchRepos list={state.whatButton[btn].list}/>
+                }
+                else if (btn==='SEARCH_POPULAR' || btn==='SEARCH_NEWEST') {
+                    return <SearchPopularAndNewest list={state.whatButton[btn].list}/>
                 }
                 else
                     return (null);

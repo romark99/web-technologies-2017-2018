@@ -10,6 +10,8 @@ import fetchAdditAsync from './Request/fetchAddit'
 import fetchFollowersAsync from './Request/fetchFollowers'
 import fetchReposAsync from './Request/fetchRepos'
 import fetchSearchReposAsync from './Request/fetchSearchRepos'
+import fetchSearchPopularAsync from './Request/fetchSearchPopular'
+import fetchSearchNewestAsync from './Request/fetchSearchNewest'
 import {makeErrorPage} from "./AppError";
 //import {composeWithDevTools} from 'redux-devtools-extension';
 //import thunk from 'redux-thunk';
@@ -90,7 +92,7 @@ const whatButton = (state={shown:null}, action) => {
         // case 'ADDITIONALLY': case 'FOLLOWERS': case 'REPOS':
         //     return anotherButton(action.type, state, obj, false, action.list);
         case 'ADDITIONALLY':
-        case 'FOLLOWERS': case 'REPOS': case 'SEARCH_REPOS':
+        case 'FOLLOWERS': case 'REPOS': case 'SEARCH_REPOS': case 'SEARCH_POPULAR': case 'SEARCH_NEWEST':
             return Object.assign({}, state, anotherButton(action.type, state, obj, false, action.list));
         case 'SHOW_SEARCH_REPOS':
             return Object.assign({}, state, anotherButton('SEARCH_REPOS', state, obj, false, []));
@@ -121,6 +123,8 @@ function* watchFetches() {
     yield takeEvery('FETCHED_FOLLOWERS', fetchFollowersAsync);
     yield takeEvery('FETCHED_REPOS', fetchReposAsync);
     yield takeEvery('FETCHED_SEARCH_REPOS', fetchSearchReposAsync);
+    yield takeEvery('FETCHED_SEARCH_POPULAR', fetchSearchPopularAsync);
+    yield takeEvery('FETCHED_SEARCH_NEWEST', fetchSearchNewestAsync);
 }
 
 sagaMiddleware.run(watchFetches);

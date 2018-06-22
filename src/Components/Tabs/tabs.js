@@ -25,6 +25,14 @@ class Tabs extends Component {
             return { type: 'SHOW_SEARCH_REPOS' }
         };
 
+        const fetchSearchPopular = () => {
+            return { type: 'FETCHED_SEARCH_POPULAR' }
+        };
+
+        const fetchSearchNewest = () => {
+            return { type: 'FETCHED_SEARCH_NEWEST' }
+        };
+
         console.log(state);
         function editOrSave(mode) {
             if (mode==='READ') {
@@ -43,6 +51,8 @@ class Tabs extends Component {
                 <button className={'tabButs '+(state.whatButton.shown==='FOLLOWERS'?'gray':'inherit')} onClick={()=>store.dispatch(fetchFollowers())}>Последователи</button>
                 <button className={'tabButs '+(state.whatButton.shown==='REPOS'?'gray':'inherit')} onClick={()=>store.dispatch(fetchRepos())}>Репозитории</button>
                 <button className={'tabButs '+(state.whatButton.shown==='SEARCH_REPOS'?'gray':'inherit')} onClick={()=>store.dispatch(fetchShowSearchRepos())}>Поиск репозитория</button>
+                <button className={'tabButs '+(state.whatButton.shown==='SEARCH_POPULAR'?'gray':'inherit')} onClick={()=>store.dispatch(fetchSearchPopular())}>10 популярнейших</button>
+                <button className={'tabButs '+(state.whatButton.shown==='SEARCH_NEWEST'?'gray':'inherit')} onClick={()=>store.dispatch(fetchSearchNewest())}>10 новых трендовых за неделю</button>
                 <button className={'tabButs inherit'+((state.whatButton.shown==='MAIN'||state.whatButton.shown==='EDUCATION'||state.whatButton.shown==='CONTACTS')?'':' hidden')}
                         id="editButton"
                         onClick={()=>editOrSave(state.whatButton[btn].mode)}>{!(state.whatButton[btn])||state.whatButton[btn].mode==='READ'?'Редактировать':'Сохранить'}</button>
