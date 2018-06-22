@@ -1,0 +1,74 @@
+.iconWithSpaces {
+    margin-right: 5px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 100px 1fr
+}
+
+.divRequest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divTop {
+    grid-column: 1/3;
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divBottom {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.loadingError {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    margin: auto;
+}
+
+main>div {
+    margin: 15px;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: auto;
+}
+
+.gridTabs {
+    display: grid;
+    border: 1px solid #ccc;
+    grid-template-rows: auto 1fr;
+}
+
+.usualButtons {
+    background-color: #ccc;
+    padding: 5px;
+    margin: 5px;
+
+}
+
+.usualButtons:hover {
+    background-color: lightblue;
+}
+button {
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.mainPart {
+    margin: 5px;
+}
