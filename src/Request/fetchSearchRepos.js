@@ -24,22 +24,21 @@ const requestDeleteAll = () => {
 };
 
 const getUrl = (repo, filterJS, filterWithoutStars) => {
-    let str = 'https://api.github.com/search/repositories';
+    let str = 'https://api.github.com/search/repositories?q=';
     if (repo !== '') {
         str = str
-            + '?q='
             + repo
             + (filterJS ? '+language:JavaScript' : '')
             + (filterWithoutStars ? '+stars:0' : '');
     } else {
         if (filterJS) {
             str = str
-                + '?q=language:JavaScript'
+                + 'language:JavaScript'
                 + (filterWithoutStars ? '+stars:0' : '');
         }
         else {
             str = str
-                + (filterWithoutStars ? '?q=stars:0' : "?q=*");
+                + (filterWithoutStars ? 'stars:0' : "''");
         }
     }
     return str;
