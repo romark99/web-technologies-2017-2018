@@ -3,7 +3,6 @@ import './Components/Icon/icon.js';
 import './App.css';
 import Info from "./Components/Info/info"
 import Tabs from "./Components/Tabs/tabs";
-import {func} from "./Request/fetchUser";
 import {getStateFromStore} from "./index";
 import ShowInf from "./Components/Tab/ShowInf/showInf";
 import WriteInf from "./Components/Tab/WriteInf/writeInf";

@@ -1,4 +1,3 @@
-import {getStateFromStore} from "../index";
 import {call, put} from "redux-saga/es/effects";
 import isError from "./isError";
 

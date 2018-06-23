@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import store from "../../../index";
 import "../../../App.css"
 import "./searchRepos.css"

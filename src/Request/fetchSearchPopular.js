@@ -25,7 +25,6 @@ const getUrl = () => {
 };
 
 export default function* fetchSearchPopular() {
-    let state = getStateFromStore();
     let url = getUrl();
     try {
         yield put(requestAddit());

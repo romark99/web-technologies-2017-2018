@@ -43,7 +43,6 @@ const getUrl = () => {
 };
 
 export default function* fetchSearchNewest() {
-    let state = getStateFromStore();
     let url = getUrl();
     try {
         yield put(requestAddit());

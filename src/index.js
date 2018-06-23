@@ -12,7 +12,6 @@ import fetchReposAsync from './Request/fetchRepos'
 import fetchSearchReposAsync from './Request/fetchSearchRepos'
 import fetchSearchPopularAsync from './Request/fetchSearchPopular'
 import fetchSearchNewestAsync from './Request/fetchSearchNewest'
-import {makeErrorPage} from "./AppError";
 //import {composeWithDevTools} from 'redux-devtools-extension';
 //import thunk from 'redux-thunk';
 
@@ -66,7 +65,6 @@ function anotherButton(prop, state, obj, type, list) {
 }
 
 const reducerUser = (state={user:gaearon, loading:false, error:false}, action) => {
-    let obj = Object.assign({}, state);
     switch (action.type) {
         case 'REQUESTED':
             return Object.assign({}, state, {loading:true, error:false});
