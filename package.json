@@ -99,6 +99,12 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "semi": ["error", "always"],
+      "quotes": ["error", "single"],
+      "max-len": ["error", { "code": 80 }],
+      "eol-last": ["error", "always"]
+    }
   }
 }

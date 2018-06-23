@@ -6,8 +6,7 @@ function getPageURL(name) {
 }
 
 //Saga
-function* fetchUserAsync() {
-    let userLogin = document.getElementById("nickname").value;
+function* fetchUserAsync() { let userLogin = document.getElementById("nickname").value;
     try{
         yield put(requestUser());
         const data = yield call(() => {

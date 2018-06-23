@@ -19,9 +19,7 @@ const requestAdditError = (error) => {
     return { type: 'FAILED', errorMessage: error}
 };
 
-export default function* fetchFollowersAsync() {
-    let state = getStateFromStore();
-    let url = state.reducerUser.user.followers_url;
+export default function* fetchFollowersAsync() {let state = getStateFromStore();let url = state.reducerUser.user.followers_url;
     try {
         yield put(requestAddit());
         const data = yield call(() => {

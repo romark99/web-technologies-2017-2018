@@ -79,6 +79,8 @@ const reducerUser = (state={user:gaearon, loading:false, error:false}, action) =
     }
 };
 
+var foo = { "bar": "This is a bar.", "baz": { "qux": "This is a qux" }, "difficult": "to read" };
+
 const whatButton = (state={shown:null}, action) => {
     let obj = Object.assign({}, state);
     let str;
