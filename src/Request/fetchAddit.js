@@ -3,21 +3,21 @@ import {call, put} from 'redux-saga/es/effects';
 import isError from './isError';
 
 // Action Creators
-const requestAddit = () => {
+function requestAddit () {
     return { type: 'REQUESTED'};
-};
+}
 
-const requestAdditSuccess = (data) => {
+function requestAdditSuccess (data) {
     return { type: 'ADDITIONALLY', list: data};
-};
+}
 
-const requestAdditError = (error) => {
+function requestAdditError (error) {
     return { type: 'FAILED', errorMessage: error};
-};
+}
 
-const requestSuccess = ()=> {
+export function requestSuccess () {
     return {type: 'SUCCEEDED'};
-};
+}
 
 export default function* fetchAdditAsync() {
     let state = getStateFromStore();
