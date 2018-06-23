@@ -6,7 +6,9 @@ class ShowFollowers extends Component {
         return (
             <Router>
                 <ul>
-                    {this.props.list.map(elem=>{return {login: elem.login, id: elem.id}}).map(elem=>{
+                    {this.props.list.map(elem=>{
+                        return {login: elem.login, id: elem.id};
+                    }).map(elem=>{
                         return (
                             <li key={elem.id}>
                                 <Link to={`/followers/${elem.id}`}>

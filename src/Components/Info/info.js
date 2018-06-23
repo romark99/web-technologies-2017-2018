@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './info.css';
-import PicText from "../PicText/picText";
+import PicText from '../PicText/picText';
 
 class Info extends Component {
     render() {

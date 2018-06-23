@@ -6,7 +6,9 @@ class ShowRepos extends Component {
         return (
             <Router>
                 <ul>
-                    {this.props.list.map(elem=>{return {name: elem.name, id: elem.id}}).map(elem=>{
+                    {this.props.list.map(elem=>{
+                        return {name: elem.name, id: elem.id};
+                    }).map(elem=>{
                         return (
                             <li key={elem.id}>
                                 <Link to={`/repos/${elem.id}`}>

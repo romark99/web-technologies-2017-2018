@@ -1,22 +1,22 @@
-import {getStateFromStore} from "../index";
-import {call, put} from "redux-saga/es/effects";
-import isError from "./isError";
+import {getStateFromStore} from '../index';
+import {call, put} from 'redux-saga/es/effects';
+import isError from './isError';
 
 // Action Creators
 const requestAddit = () => {
-    return { type: 'REQUESTED'}
+    return { type: 'REQUESTED'};
 };
 
 const requestAdditSuccess = (data) => {
-    return { type: 'REPOS', list: data}
+    return { type: 'REPOS', list: data};
 };
 
 const requestSuccess = ()=> {
-    return {type: 'SUCCEEDED'}
+    return {type: 'SUCCEEDED'};
 };
 
 const requestAdditError = (error) => {
-    return { type: 'FAILED', errorMessage: error}
+    return { type: 'FAILED', errorMessage: error};
 };
 
 export default function* fetchReposAsync() {
@@ -31,6 +31,6 @@ export default function* fetchReposAsync() {
         yield put(requestAdditSuccess(data));
         yield put(requestSuccess());
     } catch (error) {
-        yield put(requestAdditError(error))
+        yield put(requestAdditError(error));
     }
 }

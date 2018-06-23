@@ -1,26 +1,26 @@
-import {getStateFromStore} from "../index";
-import {call, put} from "redux-saga/es/effects";
-import isError from "./isError";
+import {call, put} from 'redux-saga/es/effects';
+import isError from './isError';
 
 // Action Creators
 const requestAddit = () => {
-    return { type: 'REQUESTED'}
+    return { type: 'REQUESTED'};
 };
 
 const requestAdditSuccess = (data) => {
-    return { type: 'SEARCH_POPULAR', list: data}
+    return { type: 'SEARCH_POPULAR', list: data};
 };
 
 const requestSuccess = ()=> {
-    return {type: 'SUCCEEDED'}
+    return {type: 'SUCCEEDED'};
 };
 
 const requestAdditError = (error) => {
-    return { type: 'FAILED', errorMessage: error}
+    return { type: 'FAILED', errorMessage: error};
 };
 
 const getUrl = () => {
-    let str = 'https://api.github.com/search/repositories?q=stars:>1&sort=stars';
+    let str =
+        'https://api.github.com/search/repositories?q=stars:>1&sort=stars';
     return str;
 };
 
@@ -31,11 +31,11 @@ export default function* fetchSearchPopular() {
         const data = yield call(() => {
             return fetch(url)
                 .then(response => isError(response))
-                .then(response => response.items)
+                .then(response => response.items);
         });
         yield put(requestAdditSuccess(data));
         yield put(requestSuccess());
     } catch (error) {
-        yield put(requestAdditError(error))
+        yield put(requestAdditError(error));
     }
 }

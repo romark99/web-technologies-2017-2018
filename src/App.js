@@ -1,29 +1,21 @@
 import React, {Component, Fragment} from 'react';
 import './Components/Icon/icon.js';
 import './App.css';
-import Info from "./Components/Info/info"
-import Tabs from "./Components/Tabs/tabs";
-import {getStateFromStore} from "./index";
-import ShowInf from "./Components/Tab/ShowInf/showInf";
-import WriteInf from "./Components/Tab/WriteInf/writeInf";
-import ShowList from "./Components/Tab/ShowList/showList";
-import store from "./index";
-import ShowFollowers from "./Components/Tab/ShowList/showFollowers";
-import ShowRepos from "./Components/Tab/ShowList/showRepos";
-import SearchRepos from "./Components/Tab/SearchRepos/searchRepos"
-import SearchPopularAndNewest from "./Components/Tab/SearchRepos/searchPopularAndNewest";
+import Info from './Components/Info/info';
+import Tabs from './Components/Tabs/tabs';
+import {getStateFromStore} from './index';
+import ShowInf from './Components/Tab/ShowInf/showInf';
+import WriteInf from './Components/Tab/WriteInf/writeInf';
+import ShowList from './Components/Tab/ShowList/showList';
+import store from './index';
+import ShowFollowers from './Components/Tab/ShowList/showFollowers';
+import ShowRepos from './Components/Tab/ShowList/showRepos';
+import SearchRepos from './Components/Tab/SearchRepos/searchRepos';
+import SearchPopularAndNewest
+    from './Components/Tab/SearchRepos/searchPopularAndNewest';
 
 class App extends Component {
     render() {
-        // const asyncFetchUser = () => {
-        //     return dispatch => {
-        //         setTimeout(()=> {
-        //             func(document.getElementById("nickname").value, dispatch);
-        //         }, 2000)
-        //     }
-        // };
-        // let foo = ()=>store.dispatch(asyncFetchUser());
-
         let state = getStateFromStore();
         let user = state.reducerUser.user;
         let btn = state.whatButton.shown;
@@ -36,19 +28,20 @@ class App extends Component {
                     return <WriteInf inf={state.whatButton[btn].inf}/>;
                 }
                 else if (btn==='ADDITIONALLY') {
-                    return <ShowList list={state.whatButton[btn].list}/>
+                    return <ShowList list={state.whatButton[btn].list}/>;
                 }
                 else if (btn==='FOLLOWERS') {
-                    return <ShowFollowers list={state.whatButton[btn].list}/>
+                    return <ShowFollowers list={state.whatButton[btn].list}/>;
                 }
                 else if (btn==='REPOS') {
-                    return <ShowRepos list={state.whatButton[btn].list}/>
+                    return <ShowRepos list={state.whatButton[btn].list}/>;
                 }
                 else if (btn==='SEARCH_REPOS') {
-                    return <SearchRepos list={state.whatButton[btn].list}/>
+                    return <SearchRepos list={state.whatButton[btn].list}/>;
                 }
                 else if (btn==='SEARCH_POPULAR' || btn==='SEARCH_NEWEST') {
-                    return <SearchPopularAndNewest list={state.whatButton[btn].list}/>
+                    return <SearchPopularAndNewest
+                        list={state.whatButton[btn].list}/>;
                 }
                 else
                     return (null);
@@ -59,7 +52,7 @@ class App extends Component {
 
         //Action creator
         const fetchUser = () => {
-            return { type: 'FETCHED_USER' }
+            return { type: 'FETCHED_USER' };
         };
 
         let elem = getElement();
@@ -69,7 +62,10 @@ class App extends Component {
                     <h2>Введите имя пользователя:</h2>
                     <div className="divRequest">
                         <input type="text" id="nickname"/>
-                        <button className="usualButtons" onClick={()=>store.dispatch(fetchUser())}>Отправить</button>
+                        <button className="usualButtons"
+                                onClick={
+                                    ()=>store.dispatch(fetchUser())
+                                }>Отправить</button>
                     </div>
                 </div>
                 {
@@ -82,7 +78,9 @@ class App extends Component {
                     state.reducerUser.error===true
                         ?
                         <Fragment>
-                            <h1 className="loadingError">{state.reducerUser.message}</h1>
+                            <h1 className="loadingError">
+                                {state.reducerUser.message}
+                            </h1>
                         </Fragment>
                         :
                         <Fragment>
