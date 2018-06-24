@@ -1,22 +1,7 @@
-import {call, put} from 'redux-saga/es/effects';
+import {call, put} from 'redux-saga/effects';
 import isError from './isError';
-
-// Action Creators
-const requestAddit = () => {
-    return { type: 'REQUESTED'};
-};
-
-const requestAdditSuccess = (data) => {
-    return { type: 'SEARCH_POPULAR', list: data};
-};
-
-const requestSuccess = ()=> {
-    return {type: 'SUCCEEDED'};
-};
-
-const requestAdditError = (error) => {
-    return { type: 'FAILED', errorMessage: error};
-};
+import {requestSmth, requestSearchPopularSuccess,
+    requestError, requestSuccess} from '../actions';
 
 const getUrl = () => {
     let str =
@@ -24,18 +9,18 @@ const getUrl = () => {
     return str;
 };
 
-export default function* fetchSearchPopular() {
+export function* fetchSearchPopularAsync() {
     let url = getUrl();
     try {
-        yield put(requestAddit());
+        yield put(requestSmth());
         const data = yield call(() => {
             return fetch(url)
                 .then(response => isError(response))
                 .then(response => response.items);
         });
-        yield put(requestAdditSuccess(data));
+        yield put(requestSearchPopularSuccess(data));
         yield put(requestSuccess());
     } catch (error) {
-        yield put(requestAdditError(error));
+        yield put(requestError(error));
     }
 }

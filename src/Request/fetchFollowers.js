@@ -1,36 +1,21 @@
 import {getStateFromStore} from '../index';
-import {call, put} from 'redux-saga/es/effects';
+import {call, put} from 'redux-saga/effects';
+import {requestSmth, requestFollowersSuccess,
+    requestError, requestSuccess} from '../actions';
 import isError from './isError';
 
-// Action Creators
-const requestAddit = () => {
-    return { type: 'REQUESTED'};
-};
-
-const requestAdditSuccess = (data) => {
-    return { type: 'FOLLOWERS', list: data};
-};
-
-const requestSuccess = ()=> {
-    return {type: 'SUCCEEDED'};
-};
-
-const requestAdditError = (error) => {
-    return { type: 'FAILED', errorMessage: error};
-};
-
-export default function* fetchFollowersAsync() {
+export function* fetchFollowersAsync() {
     let state = getStateFromStore();
     let url = state.reducerUser.user.followers_url;
     try {
-        yield put(requestAddit());
+        yield put(requestSmth());
         const data = yield call(() => {
             return fetch(url)
                 .then(response => isError(response));
         });
-        yield put(requestAdditSuccess(data));
+        yield put(requestFollowersSuccess(data));
         yield put(requestSuccess());
     } catch (error) {
-        yield put(requestAdditError(error));
+        yield put(requestError(error));
     }
 }

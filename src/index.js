@@ -4,14 +4,14 @@ import './index.css';
 import App from './App';
 import {takeEvery} from 'redux-saga';
 import {combineReducers, createStore, applyMiddleware} from 'redux';
-import fetchUserAsync from './Request/fetchUser';
+import {fetchUserAsync} from './Request/fetchUser';
 import createSagaMiddleware from 'redux-saga';
-import fetchAdditAsync from './Request/fetchAddit';
-import fetchFollowersAsync from './Request/fetchFollowers';
-import fetchReposAsync from './Request/fetchRepos';
-import fetchSearchReposAsync from './Request/fetchSearchRepos';
-import fetchSearchPopularAsync from './Request/fetchSearchPopular';
-import fetchSearchNewestAsync from './Request/fetchSearchNewest';
+import {fetchAdditAsync} from './Request/fetchAddit';
+import {fetchFollowersAsync} from './Request/fetchFollowers';
+import {fetchReposAsync} from './Request/fetchRepos';
+import {fetchSearchReposAsync} from './Request/fetchSearchRepos';
+import {fetchSearchPopularAsync} from './Request/fetchSearchPopular';
+import {fetchSearchNewestAsync} from './Request/fetchSearchNewest';
 
 const gaearon = {
     login: 'gaearon',

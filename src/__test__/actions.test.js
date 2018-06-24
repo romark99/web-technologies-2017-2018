@@ -1,5 +1,4 @@
-
-import {requestSuccess} from '../Request/fetchAddit';
+import * as actions from '../actions';
 
 describe('requestSuccess', () => {
     it('should create an action to add a todo', () => {
@@ -7,7 +6,7 @@ describe('requestSuccess', () => {
         const expectedAction = {
             type: 'SUCCEEDED',
         };
-        expect(requestSuccess()).toEqual(expectedAction);
+        expect(actions.requestSuccess()).toEqual(expectedAction);
     });
 });
 
