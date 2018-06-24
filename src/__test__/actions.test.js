@@ -1,7 +1,7 @@
 import * as actions from '../actions';
 
 describe('requestSuccess', () => {
-    it('should create an action to add a todo', () => {
+    it('should return success action', () => {
         const data = 'some data';
         const expectedAction = {
             type: 'SUCCEEDED',
