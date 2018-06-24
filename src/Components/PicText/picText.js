@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Icon from '../Icon/icon.js'
+import Icon from '../Icon/icon.js';
 import './picText.css';
 
 class PicText extends Component {
