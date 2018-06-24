@@ -3,16 +3,16 @@ export function requestSmth () {
     return { type: 'REQUESTED'};
 }
 
+export function requestSuccess () {
+    return {type: 'SUCCEEDED'};
+}
+
 export function requestAdditSuccess (data) {
     return { type: 'ADDITIONALLY', list: data};
 }
 
 export function requestError (error) {
     return { type: 'FAILED', errorMessage: error.toString()};
-}
-
-export function requestSuccess () {
-    return {type: 'SUCCEEDED'};
 }
 
 export function requestFollowersSuccess (data) {
