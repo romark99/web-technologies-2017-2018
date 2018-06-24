@@ -114,11 +114,11 @@ describe('ACTIONS:', () => {
     it('should check requestUserSuccess', () => {
         const expectedAction1 = {
             type: 'REQUESTED_USER_SUCCEEDED',
-            list: data1
+            user: data1
         };
         const expectedAction2 = {
             type: 'REQUESTED_USER_SUCCEEDED',
-            list: data2
+            user: data2
         };
         expect(actions.requestUserSuccess(data1))
             .toEqual(expectedAction1);
@@ -127,13 +127,17 @@ describe('ACTIONS:', () => {
     });
 
     it('should check requestError', () => {
-        const expectedAction = {
+        const expectedAction1 = {
+            type: 'FAILED',
+            errorMessage: 'Error: ' + textError
+        };
+        const expectedAction2 = {
             type: 'FAILED',
             errorMessage: textError
         };
         expect(actions.requestError(error))
-            .toEqual(expectedAction);
+            .toEqual(expectedAction1);
         expect(actions.requestError(textError))
-            .toEqual(expectedAction);
+            .toEqual(expectedAction2);
     });
 });
