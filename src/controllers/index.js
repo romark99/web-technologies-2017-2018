@@ -1,4 +1,5 @@
 const services = require('../services')();
+const constants = require('../constants');
 
 function getControllers() {
 
@@ -36,7 +37,7 @@ function getControllers() {
         );
     };
 
-    const helloApi = (req, res) => res.send('Hello API');
+    const helloApi = (req, res) => res.send(constants.HELLO_API);
 
     return {getMovies, getMovieById, getMoviesBySubstring, getPagination, sortMovies, helloApi};
 }

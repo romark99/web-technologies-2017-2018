@@ -1,3 +1,4 @@
+const constants = require('../constants');
 const movies = require('../data');
 
 function getServices() {
@@ -20,7 +21,8 @@ function getServices() {
             if (a[field] < b[field]) return -1;
             return 0;
         });
-        return direction === 'asc' ? sortedMovies : (direction === 'desc' ? sortedMovies.reverse() : []);
+        return direction === constants.DIRECTION_SORT_ASC ? sortedMovies :
+            (direction === constants.DIRECTION_SORT_DESC ? sortedMovies.reverse() : []);
     };
 
     return {getMovies, getMovieById, getMoviesBySubstring, getPagination, sortMovies};
