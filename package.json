@@ -18,5 +18,8 @@
   "homepage": "https://github.com/romark99/web-technologies-2017-2018#readme",
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.7.0"
   }
 }
