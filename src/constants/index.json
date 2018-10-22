@@ -1,5 +1,5 @@
 {
-  "API_APP_STARTED": "API app started",
+  "API_APP_STARTED": "API app started.",
   "DIRECTION_SORT_ASC": "asc",
   "DIRECTION_SORT_DESC": "desc",
   "PATH_MOVIES": "/movies",
@@ -8,5 +8,8 @@
   "PATH_PAGINATION": "/pagination",
   "PATH_SORT": "/sort",
   "PATH_ROOT": "/",
-  "HELLO_API": "Hello API"
+  "HELLO_API": "Hello API",
+  "TERMINATION_SIGNAL_RECIEVED": "\nA termination signal received.",
+  "CLOSING_SERVER": "Closing server.",
+  "SERVER_CLOSED": "Http server closed."
 }
