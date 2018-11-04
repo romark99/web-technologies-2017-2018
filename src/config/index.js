@@ -1,5 +1,1 @@
-function config() {
-  require("dotenv").config();
-}
-
-module.exports = config;
+module.exports = (() => require("dotenv").config())();

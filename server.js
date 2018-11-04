@@ -1,6 +1,6 @@
-require("./src/config")();
+require("./src/config");
 const constants = require("./src/constants");
-const router = require("./src/routes")();
+const router = require("./src/routes");
 
 const express = require("express");
 
