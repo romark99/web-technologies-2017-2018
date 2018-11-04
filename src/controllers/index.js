@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const services = require("../services")();
+const services = require("../services")
 const constants = require("../constants");
 
 const isError = (res, error) => {
