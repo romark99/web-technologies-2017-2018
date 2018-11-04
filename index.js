@@ -8,7 +8,7 @@ const server = app.listen(process.env.HTTP_PORT, function() {
 function gracefulShutdown() {
     console.info(constants.TERMINATION_SIGNAL_RECIEVED);
     console.log(constants.CLOSING_SERVER);
-    app.close(() => {
+    server.close(() => {
         console.log(constants.SERVER_CLOSED);
         process.exit(0);
     });
