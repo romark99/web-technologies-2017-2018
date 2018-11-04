@@ -2,7 +2,7 @@
   "name": "web-technologies-2017-2018",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "jest --coverage",
     "coverage": "istanbul cover jest"
@@ -25,13 +25,14 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
-      "server.js"
+      "app.js"
     ]
   },
   "devDependencies": {
     "eslint": "^5.7.0",
     "istanbul": "^0.4.5",
     "jest": "^23.6.0",
-    "nyc": "^13.1.0"
+    "nyc": "^13.1.0",
+    "supertest": "^3.3.0"
   }
 }
