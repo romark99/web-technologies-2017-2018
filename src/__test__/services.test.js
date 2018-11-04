@@ -125,6 +125,12 @@ describe('Services', () => {
             expect(sorted).toBe(0);
         });
 
+        test("field == 'title', direction == 'fhjgj', should return []", () => {
+            const movies = services.sortMovies('title', 'fhjgj');
+            expect(Array.isArray(movies)).toBe(true);
+            expect(movies.length).toBe(0);
+        });
+
         test("field == 'vguh', direction == 'asc', should return all movies in some order", () => {
             const movies = services.sortMovies('vguh', 'asc');
             expect(movies.length).toBeGreaterThan(10);
