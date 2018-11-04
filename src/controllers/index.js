@@ -2,6 +2,8 @@ const Joi = require("joi");
 const services = require("../services")();
 const constants = require("../constants");
 
+
+
 function getControllers() {
   const isError = (res, error) => {
     if (error && error.details) {
@@ -70,13 +72,15 @@ function getControllers() {
 
   const helloApi = (req, res) => res.send(constants.HELLO_API);
 
+  const sum = (a, b) => a + b;
+
   return {
     getMovies,
     getMovieById,
     getMoviesBySubstring,
     getPagination,
     sortMovies,
-    helloApi
+    helloApi, sum
   };
 }
 
