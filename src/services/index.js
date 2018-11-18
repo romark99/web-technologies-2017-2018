@@ -1,5 +1,8 @@
 const constants = require("../constants");
 const movies = require("../data");
+//const connection = require("../db");
+
+//connection.sync().then(() => Movie.find);
 
 const getMovies = () => movies;
 
