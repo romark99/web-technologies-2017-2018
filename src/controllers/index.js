@@ -10,29 +10,34 @@ const isError = (res, error) => {
   return false;
 };
 
-const getMovies = (req, res) => res.send(services.getMovies());
+async function getMovies(req, res) {
+  const movies = await services.getMovies();
+  res.send(movies);
+}
 
-const getMovieById = (req, res) => {
+async function getMovieById(req, res) {
   console.log(req.params);
   const schema = Joi.number()
     .min(0)
     .required();
   const { error } = Joi.validate(req.params.id, schema);
   if (!isError(res, error)) {
-    res.send(services.getMovieById(Number(req.params.id)));
+    const movie = await services.getMovieById(Number(req.params.id));
+    res.send(movie);
   }
-};
+}
 
-const getMoviesBySubstring = (req, res) => {
+async function getMoviesBySubstring(req, res) {
   console.log(req.params);
   const schema = Joi.string();
   const { error } = Joi.validate(req.params.substring, schema);
   if (!isError(res, error)) {
-    res.send(services.getMoviesBySubstring(req.params.substring));
+    const movies = await services.getMoviesBySubstring(req.params.substring);
+    res.send(movies);
   }
-};
+}
 
-const getPagination = (req, res) => {
+async function getPagination(req, res) {
   console.log(req.query);
   const schema = Joi.object().keys({
     offset: Joi.number()
@@ -49,11 +54,12 @@ const getPagination = (req, res) => {
   if (!isError(res, error)) {
     const offset = Number(req.query.offset);
     const limit = Number(req.query.limit);
-    res.send(services.getPagination(offset, limit));
+    const movies = await services.getPagination(offset, limit);
+    res.send(movies);
   }
-};
+}
 
-const sortMovies = (req, res) => {
+async function sortMovies(req, res) {
   console.log(req.query);
   const schema = Joi.object().keys({
     field: Joi.string().required(),
@@ -63,19 +69,25 @@ const sortMovies = (req, res) => {
   });
   const { error } = Joi.validate(req.query, schema);
   if (!isError(res, error)) {
-    res.send(services.sortMovies(req.query.field, req.query.direction));
+    const movies = await services.sortMovies(
+      req.query.field,
+      req.query.direction
+    );
+    res.send(movies);
   }
-};
+}
 
 const helloApi = (req, res) => res.send(constants.HELLO_API);
 
 const sum = (a, b) => a + b;
 
 module.exports = {
-    getMovies,
-    getMovieById,
-    getMoviesBySubstring,
-    getPagination,
-    sortMovies,
-    helloApi, sum, isError
+  getMovies,
+  getMovieById,
+  getMoviesBySubstring,
+  getPagination,
+  sortMovies,
+  helloApi,
+  sum,
+  isError
 };

@@ -1,35 +1,60 @@
 const constants = require("../constants");
-const movies = require("../data");
+const connection = require("../db").connection;
+const Movie = require("../db").Movie;
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
-const getMovies = () => movies;
+//const Movie = require("../models/movie")(connection);
 
-const getMovieById = id => {
-  return movies.find(movie => movie.id === id);
-};
+async function getMovies() {
+  return await connection.sync().then(() => Movie.findAll());
+}
 
-const getMoviesBySubstring = substring => {
-  return movies.filter(movie => movie.title.includes(substring));
-};
+async function getMovieById(id) {
+  return await connection.sync().then(() => Movie.findById(id));
+}
 
-const getPagination = (offset, limit) => movies.slice(offset, offset + limit);
+async function getMoviesBySubstring(substring) {
+  return await connection.sync().then(() =>
+    Movie.findAll({
+      where: {
+        title: {
+          [Op.like]: "%" + substring + "%"
+        }
+      }
+    })
+  );
+}
 
-const sortMovies = (field, direction) => {
-  const sortedMovies = movies.sort((a, b) => {
-    if (a[field] > b[field]) return 1;
-    if (a[field] < b[field]) return -1;
-    return 0;
-  });
-  return direction === constants.DIRECTION_SORT_ASC
-    ? sortedMovies
-    : direction === constants.DIRECTION_SORT_DESC
-      ? sortedMovies.reverse()
-      : [];
-};
+async function getPagination(offset, limit) {
+  return await connection.sync().then(() =>
+    Movie.findAll({
+      offset: offset,
+      limit: limit
+    })
+  );
+  //movies.slice(offset, offset + limit);
+}
+
+async function sortMovies(field, direction) {
+  if (
+    direction !== constants.DIRECTION_SORT_ASC &&
+    direction !== constants.DIRECTION_SORT_DESC
+  ) {
+    return [];
+  } else {
+    return await connection.sync().then(() =>
+      Movie.findAll({
+        order: [[field, direction]]
+      })
+    );
+  }
+}
 
 module.exports = {
-    getMovies,
-    getMovieById,
-    getMoviesBySubstring,
-    getPagination,
-    sortMovies
+  getMovies,
+  getMovieById,
+  getMoviesBySubstring,
+  getPagination,
+  sortMovies
 };
