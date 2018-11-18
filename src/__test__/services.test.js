@@ -1,11 +1,11 @@
 const services = require("../services");
 
 describe('Services', () => {
-
     describe('getMovies()', () => {
-        test("return movies", () => {
+        test("return movies", async () => {
 
-            const movies = services.getMovies();
+            const movies = await services.getMovies();
+            //console.log("WHAT IS IT: " + movies);
             expect(Array.isArray(movies)).toBe(true);
 
             movies.forEach((element) => {
@@ -20,12 +20,11 @@ describe('Services', () => {
     });
 
     describe('getMovieById(id)', () => {
-        test("id == 507569, should return some movie", () => {
-
-            const movie = services.getMovieById(507569);
+        test("id == 400535, should return some movie", () => {
+            const movie = services.getMovieById(400535);
             expect(typeof movie).toBe('object');
-            expect(movie).toHaveProperty('id', 507569);
-            expect(movie).toHaveProperty('title', 'The Seven Deadly Sins: Prisoners of the Sky');
+            expect(movie).toHaveProperty('id', 400535);
+            expect(movie).toHaveProperty('title', 'Sicario: Day of the Soldado');
             expect(movie).toHaveProperty('popularity');
             expect(movie).toHaveProperty('vote_count');
             expect(movie).toHaveProperty('release_date');

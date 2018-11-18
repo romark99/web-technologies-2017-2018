@@ -119,11 +119,11 @@ describe('Controllers', () => {
     });
 
     describe('getMovies(req, res)', () => {
-        test("res = mock with 'send' function", () => {
+        test("res = mock with 'send' function", async () => {
             const send = jest.fn();
             const req = {};
             const res = {send};
-            controllers.getMovies(req, res);
+            await controllers.getMovies(req, res);
             expect(send.mock.calls).toHaveLength(1);
             const movies = send.mock.calls[0][0];
             expect(Array.isArray(movies)).toBe(true);

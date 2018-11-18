@@ -6,8 +6,7 @@ const movies = require("../data");
 //const Movie = require("../models/movie")(connection);
 
 async function getMovies() {
-    let a = await connection.sync().then( () => Movie.findAll());
-    console.log("a: " + JSON.stringify(a));
+    let a = connection.sync().then(() => Movie.findAll());
     return a;
 }
 

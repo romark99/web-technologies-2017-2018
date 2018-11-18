@@ -1,9 +1,5 @@
-const db = require('./src/db');
 const app = require('./app');
 const constants = require("./src/constants");
-//const connection = require("./src/db");
-//const Movie = require("./src/models/movie")(connection);
-
 
 const server = app.listen(process.env.HTTP_PORT, function() {
     console.log(constants.API_APP_STARTED);

@@ -27,7 +27,7 @@ const Movie = connection.define('movie', {
  * Filling up db with data.
  */
 connection.sync({
-    force: true
+    //force: true
 }).then(() => {
     data.forEach((elem) => Movie.create(elem));
 }).catch(error => console.log(error));
