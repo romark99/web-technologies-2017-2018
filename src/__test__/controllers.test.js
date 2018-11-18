@@ -139,11 +139,11 @@ describe('Controllers', () => {
     });
 
     describe('getMovieById(req, res)', () => {
-        test("req = {params: {id: 332562 }}", () => {
+        test("req = {params: {id: 332562 }}", async () => {
             const send = jest.fn().mockReturnValue(someMovies);
             const req = {params: {id: 332562 }};
             const res = {send};
-            controllers.getMovieById(req, res);
+            await controllers.getMovieById(req, res);
             expect(send.mock.calls).toHaveLength(1);
             const movie = send.mock.calls[0][0];
             expect(typeof movie).toBe('object');
@@ -170,24 +170,25 @@ describe('Controllers', () => {
             expect(json.mock.calls).toHaveLength(1);
         });
 
-        test("req = {params: {id: 45 }}, return {}", () => {
+        test("req = {params: {id: 45 }}, return {}", async () => {
             const send = jest.fn().mockReturnValue(undefined);
             const req = {params: {id: 45 }};
 
             const res = {send};
-            controllers.getMovieById(req, res);
+            await controllers.getMovieById(req, res);
             expect(send.mock.calls).toHaveLength(1);
             const movie = send.mock.calls[0][0];
-            expect(movie).toBeUndefined();
+            //expect(movie).toBeUndefined();
+            expect(movie).toBeNull();
         });
     });
 
     describe('getMoviesBySubstring(req, res)', () => {
-        test("req = {params: {substring: 'Harry' }}, normal work", () => {
+        test("req = {params: {substring: 'Harry' }}, normal work", async () => {
             const send = jest.fn();
             const req = {params: {substring: 'Harry'}};
             const res = {send};
-            controllers.getMoviesBySubstring(req, res);
+            await controllers.getMoviesBySubstring(req, res);
             expect(send.mock.calls).toHaveLength(1);
             const movies = send.mock.calls[0][0];
             expect(Array.isArray(movies)).toBe(true);
@@ -216,12 +217,12 @@ describe('Controllers', () => {
             expect(json.mock.calls).toHaveLength(1);
         });
 
-        test("req = {params: {substring: 'q123a' }}, return {}", () => {
+        test("req = {params: {substring: 'q123a' }}, return {}", async () => {
             const send = jest.fn().mockReturnValue([]);
             const req = {params: {substring: 'q123a' }};
 
             const res = {send};
-            controllers.getMoviesBySubstring(req, res);
+            await controllers.getMoviesBySubstring(req, res);
             expect(send.mock.calls).toHaveLength(1);
             const movies = send.mock.calls[0][0];
             expect(Array.isArray(movies)).toBe(true);
@@ -230,11 +231,11 @@ describe('Controllers', () => {
     });
 
     describe('getPagination(req, res)', () => {
-        test("req = {query: {offset: 2, limit: 5}}, normal work", () => {
+        test("req = {query: {offset: 2, limit: 5}}, normal work", async () => {
             const send = jest.fn();
             const req = {query: {offset: 2, limit: 5}};
             const res = {send};
-            controllers.getPagination(req, res);
+            await controllers.getPagination(req, res);
             expect(send.mock.calls).toHaveLength(1);
             const movies = send.mock.calls[0][0];
             expect(Array.isArray(movies)).toBe(true);
@@ -295,11 +296,11 @@ describe('Controllers', () => {
     });
 
     describe('sortMovies(req, res)', () => {
-        test("req = {query: {field: 'id', direction: 'asc' }}, normal work", () => {
+        test("req = {query: {field: 'id', direction: 'asc' }}, normal work", async () => {
             const send = jest.fn();
             const req = {query: {field: 'id', direction: 'asc'}};
             const res = {send};
-            controllers.sortMovies(req, res);
+            await controllers.sortMovies(req, res);
             expect(send.mock.calls).toHaveLength(1);
             const movies = send.mock.calls[0][0];
             expect(Array.isArray(movies)).toBe(true);

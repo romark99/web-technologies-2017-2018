@@ -26,11 +26,16 @@ const Movie = connection.define('movie', {
 /**
  * Filling up db with data.
  */
-connection.sync({
-    //force: true
-}).then(() => {
-    data.forEach((elem) => Movie.create(elem));
-}).catch(error => console.log(error));
+connection.sync().then(() => {
+    Movie.findAll()
+        .then(movies => movies.length)
+        .then(length => {
+            if (!(length > 0)) {
+                data.forEach((elem) => Movie.create(elem));
+            }
+        })
+        .catch(error => console.log(error));
+});
 
 
 
