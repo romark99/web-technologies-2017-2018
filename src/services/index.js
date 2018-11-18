@@ -1,10 +1,15 @@
 const constants = require("../constants");
+const connection = require("../db").connection;
+const Movie = require("../db").Movie;
 const movies = require("../data");
-//const connection = require("../db");
 
-//connection.sync().then(() => Movie.find);
+//const Movie = require("../models/movie")(connection);
 
-const getMovies = () => movies;
+async function getMovies() {
+    let a = await connection.sync().then( () => Movie.findAll());
+    console.log("a: " + JSON.stringify(a));
+    return a;
+}
 
 const getMovieById = id => {
   return movies.find(movie => movie.id === id);

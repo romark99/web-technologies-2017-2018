@@ -10,7 +10,10 @@ const isError = (res, error) => {
   return false;
 };
 
-const getMovies = (req, res) => res.send(services.getMovies());
+async function getMovies (req, res) {
+    const movies = await services.getMovies();
+    res.send(movies);
+}
 
 const getMovieById = (req, res) => {
   console.log(req.params);

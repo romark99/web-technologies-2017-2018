@@ -1,17 +1,9 @@
+const db = require('./src/db');
 const app = require('./app');
 const constants = require("./src/constants");
-const connection = require("./src/db");
-const Movie = require("./src/models/movie");
-const data = require("./src/data");
+//const connection = require("./src/db");
+//const Movie = require("./src/models/movie")(connection);
 
-/**
- * Filling up db with data.
- */
-connection.sync({
-    force: true
-}).then(() => {
-    data.forEach((elem) => Movie.create(elem));
-}).catch(error => console.log(error));
 
 const server = app.listen(process.env.HTTP_PORT, function() {
     console.log(constants.API_APP_STARTED);
