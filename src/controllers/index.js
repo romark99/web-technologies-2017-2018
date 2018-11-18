@@ -10,12 +10,12 @@ const isError = (res, error) => {
   return false;
 };
 
-async function getMovies (req, res) {
-    const movies = await services.getMovies();
-    res.send(movies);
+async function getMovies(req, res) {
+  const movies = await services.getMovies();
+  res.send(movies);
 }
 
-async function getMovieById (req, res) {
+async function getMovieById(req, res) {
   console.log(req.params);
   const schema = Joi.number()
     .min(0)
@@ -37,7 +37,7 @@ async function getMoviesBySubstring(req, res) {
   }
 }
 
-async function getPagination (req, res) {
+async function getPagination(req, res) {
   console.log(req.query);
   const schema = Joi.object().keys({
     offset: Joi.number()
@@ -52,10 +52,10 @@ async function getPagination (req, res) {
   });
   const { error } = Joi.validate(req.query, schema);
   if (!isError(res, error)) {
-      const offset = Number(req.query.offset);
-      const limit = Number(req.query.limit);
-      const movies = await services.getPagination(offset, limit);
-      res.send(movies);
+    const offset = Number(req.query.offset);
+    const limit = Number(req.query.limit);
+    const movies = await services.getPagination(offset, limit);
+    res.send(movies);
   }
 }
 
@@ -69,8 +69,11 @@ async function sortMovies(req, res) {
   });
   const { error } = Joi.validate(req.query, schema);
   if (!isError(res, error)) {
-      const movies = await services.sortMovies(req.query.field, req.query.direction);
-      res.send(movies);
+    const movies = await services.sortMovies(
+      req.query.field,
+      req.query.direction
+    );
+    res.send(movies);
   }
 }
 
@@ -79,10 +82,12 @@ const helloApi = (req, res) => res.send(constants.HELLO_API);
 const sum = (a, b) => a + b;
 
 module.exports = {
-    getMovies,
-    getMovieById,
-    getMoviesBySubstring,
-    getPagination,
-    sortMovies,
-    helloApi, sum, isError
+  getMovies,
+  getMovieById,
+  getMoviesBySubstring,
+  getPagination,
+  sortMovies,
+  helloApi,
+  sum,
+  isError
 };
