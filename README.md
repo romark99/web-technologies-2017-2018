@@ -7,3 +7,4 @@ Create .env file in project root directory with environment variables:
 .env:
 
     HTTP_PORT=3024
+    MONGO_ATLAS_PW=12345
