@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require('mongoose-paginate');
 
 const movieSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
@@ -16,5 +17,6 @@ const movieSchema = mongoose.Schema({
     overview: String,
     release_date: Date
 });
+movieSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Movie', movieSchema);

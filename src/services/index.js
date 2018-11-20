@@ -8,14 +8,12 @@ const Op = Sequelize.Op;
 
 const Movie2 = require('../models/movie2');
 
-//const Movie = require("../models/movie")(connection);
-
 async function getMovies() {
-
-  return await connection.sync().then(() => Movie.findAll());
+    return await Movie2.find().exec();
+    //return await connection.sync().then(() => Movie.findAll());
 }
 
-function postMovie(req) {
+const postMovie = req => {
     const movie = new Movie2({
         _id: new mongoose.Types.ObjectId(),
         id: req.body.id,
@@ -33,47 +31,61 @@ function postMovie(req) {
         release_date: req.body.release_date
     });
     return movie;
-}
+};
 
 async function getMovieById(id) {
-  return await connection.sync().then(() => Movie.findById(id));
+    return await Movie2.find({id}).exec();
+  //return await connection.sync().then(() => Movie.findById(id));
 }
 
 async function getMoviesBySubstring(substring) {
-  return await connection.sync().then(() =>
-    Movie.findAll({
-      where: {
-        title: {
-          [Op.like]: "%" + substring + "%"
-        }
-      }
-    })
-  );
+    return await Movie2.find({title: {"$regex": substring, "$options": "i"}}).exec();
+  // return await connection.sync().then(() =>
+  //   Movie.findAll({
+  //     where: {
+  //       title: {
+  //         [Op.like]: "%" + substring + "%"
+  //       }
+  //     }
+  //   })
+  // );
 }
 
 async function getPagination(offset, limit) {
-  return await connection.sync().then(() =>
-    Movie.findAll({
-      offset: offset,
-      limit: limit
-    })
-  );
+    return await Movie2.paginate({}, {offset, limit}).then(pag => pag.docs);
+  // return await connection.sync().then(() =>
+  //   Movie.findAll({
+  //     offset: offset,
+  //     limit: limit
+  //   })
+  // );
   //movies.slice(offset, offset + limit);
 }
 
 async function sortMovies(field, direction) {
-  if (
-    direction !== constants.DIRECTION_SORT_ASC &&
-    direction !== constants.DIRECTION_SORT_DESC
-  ) {
-    return [];
-  } else {
-    return await connection.sync().then(() =>
-      Movie.findAll({
-        order: [[field, direction]]
-      })
-    );
-  }
+    if (
+        direction !== constants.DIRECTION_SORT_ASC &&
+        direction !== constants.DIRECTION_SORT_DESC
+    ) {
+        return [];
+    } else {
+        const direct = direction === constants.DIRECTION_SORT_ASC ? 1 : -1;
+        let obj = {};
+        obj[field] = direct;
+        return await Movie2.find().sort(obj).exec();
+    }
+  // if (
+  //   direction !== constants.DIRECTION_SORT_ASC &&
+  //   direction !== constants.DIRECTION_SORT_DESC
+  // ) {
+  //   return [];
+  // } else {
+  //   return await connection.sync().then(() =>
+  //     Movie.findAll({
+  //       order: [[field, direction]]
+  //     })
+  //   );
+  // }
 }
 
 module.exports = {
