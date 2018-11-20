@@ -1,7 +1,5 @@
 const app = require("./app");
 const constants = require("./src/constants");
-require("./src/db");
-
 
 
 const server = app.listen(process.env.PORT || process.env.HTTP_PORT, function() {

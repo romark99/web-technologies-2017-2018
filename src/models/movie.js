@@ -1,20 +1,22 @@
-const Sequelize = require("sequelize");
+const mongoose = require("mongoose");
+const mongoosePaginate = require('mongoose-paginate');
 
-const getModel = connection => {
-  return connection.define("movie", {
-    vote_count: Sequelize.INTEGER,
-    video: Sequelize.BOOLEAN,
-    vote_average: Sequelize.FLOAT,
-    title: Sequelize.STRING,
-    popularity: Sequelize.FLOAT,
-    poster_path: Sequelize.STRING,
-    original_language: Sequelize.STRING,
-    original_title: Sequelize.STRING,
-    backdrop_path: Sequelize.STRING,
-    adult: Sequelize.BOOLEAN,
-    overview: Sequelize.TEXT,
-    release_date: Sequelize.DATEONLY
-  });
-};
+const movieSchema = mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
+    id: Number,
+    vote_count: Number,
+    video: Boolean,
+    vote_average: Number,
+    title: String,
+    popularity: Number,
+    poster_path: String,
+    original_language: String,
+    original_title: String,
+    backdrop_path: String,
+    adult: Boolean,
+    overview: String,
+    release_date: Date
+});
+movieSchema.plugin(mongoosePaginate);
 
-module.exports = getModel;
+module.exports = mongoose.model('Movie', movieSchema);

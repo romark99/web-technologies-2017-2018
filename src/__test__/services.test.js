@@ -1,3 +1,4 @@
+require("../db");
 const services = require("../services");
 
 describe("Services", () => {

@@ -12,7 +12,12 @@ const isError = (res, error) => {
 
 async function getMovies(req, res) {
     const movies = await services.getMovies();
-    res.send(movies);
+    if (movies) {
+        res.send(movies);
+    }
+    else {
+        res.status(404).json("Not found.");
+    }
 }
 
 async function getMovieById(req, res) {
