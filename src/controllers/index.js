@@ -10,6 +10,18 @@ const isError = (res, error) => {
     return false;
 };
 
+async function deleteMovie(req, res) {
+    console.log(req.params);
+    const schema = Joi.number()
+        .min(0)
+        .required();
+    const { error } = Joi.validate(req.params.id, schema);
+    if (!isError(res, error)) {
+        const movie = await services.deleteMovie(Number(req.params.id));
+        res.send(movie);
+    }
+}
+
 async function getMovies(req, res) {
     const movies = await services.getMovies();
     if (movies) {
@@ -82,8 +94,7 @@ async function sortMovies(req, res) {
     }
 }
 
-const postMovie = (req, res, next) => {
-    console.log("req::" + JSON.stringify(req.body));
+const postMovie = (req, res) => {
     const movie = services.postMovie(req);
     movie
         .save()
@@ -108,5 +119,6 @@ module.exports = {
     helloApi,
     sum,
     isError,
-    postMovie
+    postMovie,
+    deleteMovie
 };

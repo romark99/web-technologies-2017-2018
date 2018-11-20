@@ -32,6 +32,10 @@ async function getMovieById(id) {
     return await Movie.find({id}).exec();
 }
 
+async function deleteMovie(id) {
+    return await Movie.remove({id}).exec();
+}
+
 async function getMoviesBySubstring(substring) {
     return await Movie.find({title: {"$regex": substring, "$options": "i"}}).exec();
 }
@@ -60,5 +64,6 @@ module.exports = {
   getMoviesBySubstring,
   getPagination,
   sortMovies,
-    postMovie
+    postMovie,
+    deleteMovie
 };
