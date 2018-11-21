@@ -1,7 +1,8 @@
 const app = require("./app");
 const constants = require("./src/constants");
 
-const server = app.listen(process.env.HTTP_PORT, function() {
+
+const server = app.listen(process.env.PORT || process.env.HTTP_PORT, function() {
   console.log(constants.API_APP_STARTED);
 });
 

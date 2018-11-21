@@ -19,4 +19,8 @@ router.get(constants.PATH_SORT, controllers.sortMovies);
 
 router.get(constants.PATH_ROOT, controllers.helloApi);
 
+router.post(constants.PATH_ROOT, controllers.postMovie);
+
+router.delete(constants.PATH_MOVIES_BY_ID, controllers.deleteMovie)
+
 module.exports = router;
