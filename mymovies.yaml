@@ -1,0 +1,94 @@
+openapi: 3.0.1
+info:
+  title: movies
+  description: defaultDescription
+  version: '0.1'
+servers:
+  - url: 'https://whispering-fjord-82173.herokuapp.com'
+paths:
+  /sort:
+    get:
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - name: field
+          in: query
+          schema:
+            type: string
+          example: title
+        - name: direction
+          in: query
+          schema:
+            type: string
+          example: asc
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+  /search/a:
+    get:
+      description: Auto generated using Swagger Inspector
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+  /movies/25:
+    get:
+      description: Auto generated using Swagger Inspector
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+  /movies/438590:
+    get:
+      description: Auto generated using Swagger Inspector
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /movies:
+    get:
+      description: Auto generated using Swagger Inspector
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+  /pagination:
+    get:
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - name: offset
+          in: query
+          schema:
+            type: string
+          example: '5'
+        - name: limit
+          in: query
+          schema:
+            type: string
+          example: '4'
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+        '400':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /:
+    get:
+      description: Auto generated using Swagger Inspector
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            text/html; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
