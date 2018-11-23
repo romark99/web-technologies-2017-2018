@@ -1,0 +1,15 @@
+{
+  "API_APP_STARTED": "API app started.",
+  "DIRECTION_SORT_ASC": "asc",
+  "DIRECTION_SORT_DESC": "desc",
+  "PATH_MOVIES": "/movies",
+  "PATH_MOVIES_BY_ID": "/movies/:id",
+  "PATH_SEARCH_BY_SUBSTRING": "/search/:substring",
+  "PATH_PAGINATION": "/pagination",
+  "PATH_SORT": "/sort",
+  "PATH_ROOT": "/",
+  "HELLO_API": "Hello API",
+  "TERMINATION_SIGNAL_RECIEVED": "\nA termination signal received.",
+  "CLOSING_SERVER": "Closing server.",
+  "SERVER_CLOSED": "Http server closed."
+}
